@@ -84,9 +84,9 @@ export default function Hero({ darkMode }: HeroProps) {
               darkMode ? 'text-white' : 'text-slate-900'
             }`}
           >
-            Hi, I'm{' '}
+            <span className="block">Hi, I'm</span>
             <span
-              className={`bg-gradient-to-r ${
+              className={`block mt-2 bg-gradient-to-r ${
                 darkMode ? 'from-purple-400 via-pink-400 to-orange-400' : 'from-orange-500 via-rose-500 to-pink-500'
               } bg-clip-text text-transparent`}
             >
