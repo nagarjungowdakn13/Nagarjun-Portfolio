@@ -140,7 +140,7 @@ export default function Hero({ darkMode }: HeroProps) {
             </button>
 
             <a
-              href="/Nagarjun ATS Resume.pdf"
+              href="/Nagarjun_Gowda_K_N_Master_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-5 py-3.5 rounded-full font-medium text-sm transition-all duration-300 hover:-translate-y-0.5 ${
