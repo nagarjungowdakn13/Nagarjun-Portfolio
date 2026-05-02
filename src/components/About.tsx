@@ -50,20 +50,47 @@ export default function About({ darkMode }: AboutProps) {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Photo + meta */}
           <div className="lg:col-span-2">
-            <div className="relative w-72 h-72 mx-auto group">
+            <div className="relative w-64 sm:w-72 mx-auto group">
+              {/* soft gradient halo */}
               <div
-                className={`absolute -inset-3 rounded-3xl blur-2xl opacity-50 ${
-                  darkMode ? 'bg-gradient-to-br from-purple-600 to-pink-600' : 'bg-gradient-to-br from-orange-300 to-rose-300'
+                aria-hidden
+                className={`absolute -inset-5 rounded-[2.25rem] blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500'
+                    : 'bg-gradient-to-br from-orange-300 via-rose-300 to-pink-300'
                 }`}
               />
-              <img
-                src="/Nagarjun Photo.jpg"
-                alt="Nagarjun Gowda K N"
-                loading="lazy"
-                className={`relative z-10 w-full h-full object-cover rounded-3xl border-2 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] ${
-                  darkMode ? 'border-white/20' : 'border-white/80'
+
+              {/* portrait frame */}
+              <div
+                className={`relative z-10 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl ring-1 transition-transform duration-500 group-hover:scale-[1.02] ${
+                  darkMode ? 'ring-white/15 bg-slate-900' : 'ring-slate-900/10 bg-slate-100'
                 }`}
-              />
+              >
+                <img
+                  src="/Nagarjun Photo.jpg"
+                  alt="Nagarjun Gowda K N"
+                  loading="lazy"
+                  className="w-full h-full object-cover origin-top"
+                  style={{ objectPosition: '50% 0%', transform: 'scale(1.25)' }}
+                />
+
+                {/* bottom gradient — masks the printed caption in the photo */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/90 via-black/45 to-transparent"
+                />
+
+                {/* nameplate */}
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-white font-semibold tracking-tight text-[15px] leading-tight">
+                    Nagarjun Gowda K N
+                  </p>
+                  <p className="text-white/75 text-[11px] font-mono mt-1 uppercase tracking-[0.18em]">
+                    AI · Backend · Security
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="mt-8 space-y-3 max-w-xs mx-auto">
