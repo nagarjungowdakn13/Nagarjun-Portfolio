@@ -10,6 +10,7 @@ import {
   ExternalLink,
   Gauge,
   Github,
+  Network,
   Shield,
   Sparkles,
   Terminal,
@@ -291,6 +292,42 @@ const PROJECTS: Project[] = [
       'Role-based access works correctly across all three views.',
     ],
     github: 'https://github.com/nagarjungowdakn13/Attendance-Management-System',
+  },
+  {
+    id: 'network-monitoring',
+    title: 'Network Monitoring and Automation Tool',
+    tagline: 'Live device telemetry, alerting, and automated remediation across a multi-host network.',
+    categories: ['Backend', 'Security'],
+    icon: Network,
+    gradient: {
+      light: 'from-cyan-500 via-blue-500 to-indigo-500',
+      dark: 'from-cyan-600 via-blue-600 to-indigo-600',
+    },
+    problem:
+      'Network operators spend hours stitching together ping checks, SNMP polls, and ad-hoc scripts to know whether the fleet is healthy. When something breaks, remediation is manual and slow.',
+    approach: [
+      'Polled devices on a fixed cadence to collect reachability, latency, and resource metrics.',
+      'Stored time-series samples so trends and outages are visible, not just current state.',
+      'Wired alerting to threshold breaches with deduplication so a flapping link does not page repeatedly.',
+      'Added an automation layer that runs predefined remediation scripts when specific alert signatures fire.',
+    ],
+    architecture: [
+      'Scheduler → per-device probes (ping / SNMP / SSH)',
+      'Metrics store → threshold evaluator → alert stream',
+      'Alert → automation runner → device remediation action',
+      'Dashboard surfaces live status, history, and triggered actions',
+    ],
+    stack: ['Python', 'Paramiko', 'SNMP', 'Flask', 'SQLite'],
+    challenges: [
+      'Avoiding alert storms — added per-device cooldowns and signature-based deduplication.',
+      'Safe automation — every remediation runs against a whitelist of allowed actions per device class to prevent a misfire from taking down infrastructure.',
+    ],
+    impact: [
+      'Live visibility into device health across the fleet.',
+      'Mean-time-to-recovery drops for known failure modes via auto-remediation.',
+      'Auditable: every alert and every automated action is logged.',
+    ],
+    github: 'https://github.com/nagarjungowdakn13/Network-Monitoring-and-Automation-Tool',
   },
 ];
 
