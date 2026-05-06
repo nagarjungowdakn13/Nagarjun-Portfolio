@@ -31,6 +31,7 @@ interface Project {
   icon: React.ComponentType<{ size?: number; className?: string }>;
   gradient: { light: string; dark: string };
   image?: string;
+  images?: { src: string; caption: string }[];
   problem: string;
   approach: string[];
   architecture: string[];
@@ -303,6 +304,22 @@ const PROJECTS: Project[] = [
       light: 'from-cyan-500 via-blue-500 to-indigo-500',
       dark: 'from-cyan-600 via-blue-600 to-indigo-600',
     },
+    image:
+      'https://raw.githubusercontent.com/nagarjungowdakn13/Network-Monitoring-and-Automation-Tool/main/docs/images/dashboard-overview.png',
+    images: [
+      {
+        src: 'https://raw.githubusercontent.com/nagarjungowdakn13/Network-Monitoring-and-Automation-Tool/main/docs/images/dashboard-overview.png',
+        caption: 'Dashboard overview — KPIs and live device health',
+      },
+      {
+        src: 'https://raw.githubusercontent.com/nagarjungowdakn13/Network-Monitoring-and-Automation-Tool/main/docs/images/dashboard-trends.png',
+        caption: 'Trends — bandwidth and connection history',
+      },
+      {
+        src: 'https://raw.githubusercontent.com/nagarjungowdakn13/Network-Monitoring-and-Automation-Tool/main/docs/images/dashboard-operations.png',
+        caption: 'Operations — diagnostics and remediation actions',
+      },
+    ],
     problem:
       'Network operators spend hours stitching together ping checks, SNMP polls, and ad-hoc scripts to know whether the fleet is healthy. When something breaks, remediation is manual and slow.',
     approach: [
@@ -541,6 +558,9 @@ export default function Projects({ darkMode }: ProjectsProps) {
                         <RAGDiagram darkMode={darkMode} />
                       </div>
                     )}
+                    {p.images && p.images.length > 0 && (
+                      <ProjectGallery images={p.images} darkMode={darkMode} />
+                    )}
                     <div className="grid md:grid-cols-2 gap-6 pt-5">
                       <CaseSection darkMode={darkMode} label="Problem" body={[p.problem]} />
                       <CaseSection darkMode={darkMode} label="Approach" body={p.approach} />
@@ -648,6 +668,56 @@ function ProjectPreview({ project, darkMode }: { project: Project; darkMode: boo
           >
             {s}
           </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProjectGallery({
+  images,
+  darkMode,
+}: {
+  images: { src: string; caption: string }[];
+  darkMode: boolean;
+}) {
+  return (
+    <div
+      className={`mt-5 mb-2 rounded-xl border p-4 sm:p-6 ${
+        darkMode ? 'bg-slate-900/40 border-white/10' : 'bg-slate-50 border-slate-200'
+      }`}
+    >
+      <p
+        className={`text-[11px] font-mono uppercase tracking-widest mb-4 ${
+          darkMode ? 'text-purple-400' : 'text-orange-500'
+        }`}
+      >
+        // screenshots
+      </p>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {images.map((img) => (
+          <figure
+            key={img.src}
+            className={`rounded-lg overflow-hidden border ${
+              darkMode ? 'border-white/10 bg-slate-950/40' : 'border-slate-200 bg-white'
+            }`}
+          >
+            <a href={img.src} target="_blank" rel="noopener noreferrer" className="block">
+              <img
+                src={img.src}
+                alt={img.caption}
+                loading="lazy"
+                className="w-full h-40 object-cover transition-transform duration-300 hover:scale-[1.02]"
+              />
+            </a>
+            <figcaption
+              className={`px-3 py-2 text-[12px] leading-snug ${
+                darkMode ? 'text-slate-400' : 'text-slate-600'
+              }`}
+            >
+              {img.caption}
+            </figcaption>
+          </figure>
         ))}
       </div>
     </div>
