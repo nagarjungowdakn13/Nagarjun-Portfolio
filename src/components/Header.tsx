@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Menu, Moon, Sun, X } from 'lucide-react';
+import { PUBLICATIONS } from '../data/publications';
 
 interface HeaderProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
 }
 
-const NAV_ITEMS = [
+const ALL_NAV_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Research & Projects' },
+  { id: 'publications', label: 'Publications' },
+  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'notes', label: 'Notes' },
   { id: 'contact', label: 'Contact' },
 ] as const;
+
+const NAV_ITEMS = ALL_NAV_ITEMS.filter((item) => item.id !== 'publications' || PUBLICATIONS.length > 0);
 
 export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

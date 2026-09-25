@@ -51,18 +51,20 @@ export default function About({ darkMode }: AboutProps) {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Photo + meta */}
           <div className="lg:col-span-2">
-            <div className="w-56 sm:w-64 mx-auto lg:mx-0">
+            <div className="group w-56 sm:w-64 mx-auto lg:mx-0">
               <div
-                className={`aspect-[4/5] rounded-lg overflow-hidden border ${
-                  darkMode ? 'border-hairline-dark bg-charcoal-soft' : 'border-hairline bg-paper-soft'
+                className={`aspect-[4/5] rounded-lg overflow-hidden border transition-all duration-300 ${
+                  darkMode
+                    ? 'border-hairline-dark bg-charcoal-soft shadow-card-dark group-hover:shadow-card-dark-hover group-hover:border-brass/40'
+                    : 'border-hairline bg-paper-soft shadow-card group-hover:shadow-card-hover group-hover:border-gold/40'
                 }`}
               >
                 <img
                   src="/Nagarjun Photo.jpg"
                   alt="Nagarjun Gowda K N"
                   loading="lazy"
-                  className="w-full h-full object-cover grayscale-[15%] origin-top"
-                  style={{ objectPosition: '50% 0%', transform: 'scale(1.25)' }}
+                  className="w-full h-full object-cover grayscale-[15%] origin-top scale-125 transition-transform duration-500 group-hover:scale-[1.3]"
+                  style={{ objectPosition: '50% 0%' }}
                 />
               </div>
             </div>
@@ -128,13 +130,18 @@ export default function About({ darkMode }: AboutProps) {
               {FOCUS_AREAS.map(({ icon: Icon, title, body }) => (
                 <div
                   key={title}
-                  className={`p-5 rounded-lg border transition-colors duration-200 ${
+                  className={`group p-5 rounded-lg border transition-all duration-300 hover:-translate-y-1 ${
                     darkMode
-                      ? 'border-hairline-dark hover:border-white/20'
-                      : 'border-hairline hover:border-ink/20'
+                      ? 'border-hairline-dark hover:border-brass/40 shadow-card-dark hover:shadow-card-dark-hover'
+                      : 'border-hairline hover:border-gold/40 shadow-card hover:shadow-card-hover'
                   }`}
                 >
-                  <Icon size={18} className={`mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`} />
+                  <Icon
+                    size={18}
+                    className={`mb-3 transition-transform duration-300 group-hover:scale-110 ${
+                      darkMode ? 'text-brass' : 'text-gold'
+                    }`}
+                  />
                   <h3 className={`font-semibold mb-1.5 text-sm ${darkMode ? 'text-cream' : 'text-ink'}`}>
                     {title}
                   </h3>

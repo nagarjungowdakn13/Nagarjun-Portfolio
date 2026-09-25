@@ -95,12 +95,12 @@ input, textarea { cursor: text; }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: #8A5A1F;
+  background: #96681C;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6E4718;
+  background: #7A5518;
 }
 
-::selection      { background: rgba(138, 90, 31, 0.18); color: inherit; }
-::-moz-selection { background: rgba(138, 90, 31, 0.18); color: inherit; }
+::selection      { background: rgba(150, 104, 28, 0.18); color: inherit; }
+::-moz-selection { background: rgba(150, 104, 28, 0.18); color: inherit; }

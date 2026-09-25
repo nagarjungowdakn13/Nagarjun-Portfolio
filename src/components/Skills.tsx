@@ -158,19 +158,23 @@ export default function Skills({ darkMode }: SkillsProps) {
         </div>
 
         {/* Skill groups */}
-        <div
-          className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-px mb-20 border rounded-lg overflow-hidden ${
-            darkMode ? 'border-hairline-dark' : 'border-hairline'
-          }`}
-          style={{ backgroundColor: darkMode ? 'rgba(255,255,255,0.06)' : '#E3DFD3' }}
-        >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
           {SKILL_GROUPS.map(({ category, icon: Icon, description, skills }) => (
             <div
               key={category}
-              className={`p-6 ${darkMode ? 'bg-charcoal' : 'bg-paper'}`}
+              className={`group p-6 rounded-lg border transition-all duration-300 hover:-translate-y-1 ${
+                darkMode
+                  ? 'bg-charcoal border-hairline-dark hover:border-brass/40 shadow-card-dark hover:shadow-card-dark-hover'
+                  : 'bg-paper border-hairline hover:border-gold/40 shadow-card hover:shadow-card-hover'
+              }`}
             >
               <div className="flex items-center gap-2.5 mb-3">
-                <Icon size={17} className={darkMode ? 'text-brass' : 'text-gold'} />
+                <Icon
+                  size={17}
+                  className={`transition-transform duration-300 group-hover:scale-110 ${
+                    darkMode ? 'text-brass' : 'text-gold'
+                  }`}
+                />
                 <h3 className={`text-[15px] font-semibold ${darkMode ? 'text-cream' : 'text-ink'}`}>
                   {category}
                 </h3>
@@ -217,12 +221,19 @@ export default function Skills({ darkMode }: SkillsProps) {
           {ENGINEERING_PRACTICES.map(({ icon: Icon, title, points }) => (
             <div
               key={title}
-              className={`p-6 rounded-lg border ${
-                darkMode ? 'border-hairline-dark' : 'border-hairline'
+              className={`group p-6 rounded-lg border transition-all duration-300 hover:-translate-y-1 ${
+                darkMode
+                  ? 'border-hairline-dark hover:border-brass/40 shadow-card-dark hover:shadow-card-dark-hover'
+                  : 'border-hairline hover:border-gold/40 shadow-card hover:shadow-card-hover'
               }`}
             >
               <div className="flex items-center gap-2.5 mb-4">
-                <Icon size={17} className={darkMode ? 'text-brass' : 'text-gold'} />
+                <Icon
+                  size={17}
+                  className={`transition-transform duration-300 group-hover:scale-110 ${
+                    darkMode ? 'text-brass' : 'text-gold'
+                  }`}
+                />
                 <h4 className={`font-semibold text-sm ${darkMode ? 'text-cream' : 'text-ink'}`}>{title}</h4>
               </div>
               <ul className={`space-y-2 text-sm ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>

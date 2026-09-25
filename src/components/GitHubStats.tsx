@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   ArrowUpRight,
   Code2,
@@ -136,10 +136,10 @@ export default function GitHubStats({ darkMode }: GitHubStatsProps) {
           href={`https://github.com/${USERNAME}`}
           target="_blank"
           rel="noopener noreferrer"
-          className={`group relative block rounded-lg border overflow-hidden transition-colors duration-300 mb-6 ${
+          className={`group relative block rounded-lg border overflow-hidden transition-all duration-300 hover:-translate-y-1 mb-6 ${
             darkMode
-              ? 'bg-charcoal border-hairline-dark hover:border-white/25'
-              : 'bg-paper border-hairline hover:border-ink/25'
+              ? 'bg-charcoal border-hairline-dark hover:border-brass/40 shadow-card-dark hover:shadow-card-dark-hover'
+              : 'bg-paper border-hairline hover:border-gold/40 shadow-card hover:shadow-card-hover'
           }`}
           aria-label="Visit my GitHub profile"
         >
@@ -159,7 +159,9 @@ export default function GitHubStats({ darkMode }: GitHubStatsProps) {
                   src={stats.avatarUrl}
                   alt={stats.name}
                   loading="lazy"
-                  className={`w-24 h-24 rounded-full border ${darkMode ? 'border-hairline-dark' : 'border-hairline'}`}
+                  className={`w-24 h-24 rounded-full border transition-transform duration-500 group-hover:scale-105 ${
+                    darkMode ? 'border-hairline-dark' : 'border-hairline'
+                  }`}
                 />
               ) : (
                 <div
@@ -202,7 +204,7 @@ export default function GitHubStats({ darkMode }: GitHubStatsProps) {
                   >
                     <Icon size={15} className={`mb-2 ${darkMode ? 'text-brass' : 'text-gold'}`} />
                     <span className={`text-2xl font-serif font-medium tabular-nums leading-none ${darkMode ? 'text-cream' : 'text-ink'}`}>
-                      {value ?? '—'}
+                      {value !== undefined ? <CountUp value={value} /> : '—'}
                     </span>
                     <span className={`text-[11px] mt-1.5 uppercase tracking-wider ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                       {label}
@@ -342,6 +344,44 @@ export default function GitHubStats({ darkMode }: GitHubStatsProps) {
       </div>
     </section>
   );
+}
+
+function CountUp({ value, duration = 900 }: { value: number; duration?: number }) {
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const animated = useRef(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(value);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && !animated.current) {
+            animated.current = true;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              setDisplay(Math.round(eased * value));
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [value, duration]);
+
+  return <span ref={ref}>{display}</span>;
 }
 
 function Card({

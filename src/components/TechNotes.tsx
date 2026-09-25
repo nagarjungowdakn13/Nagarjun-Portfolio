@@ -308,10 +308,12 @@ export default function TechNotes({ darkMode }: TechNotesProps) {
             return (
               <article
                 key={id}
-                className={`rounded-lg border transition-colors duration-300 ${
+                className={`group rounded-lg border transition-all duration-300 ${
+                  isOpen ? '' : 'hover:-translate-y-1'
+                } ${
                   darkMode
-                    ? 'bg-charcoal border-hairline-dark hover:border-white/25'
-                    : 'bg-paper border-hairline hover:border-ink/25'
+                    ? 'bg-charcoal border-hairline-dark hover:border-brass/40 shadow-card-dark hover:shadow-card-dark-hover'
+                    : 'bg-paper border-hairline hover:border-gold/40 shadow-card hover:shadow-card-hover'
                 } ${isOpen ? 'md:col-span-3' : ''}`}
               >
                 <div className="p-6">

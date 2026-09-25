@@ -6,6 +6,7 @@ import GitHubStats from './components/GitHubStats';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import Publications from './components/Publications';
 import Reveal from './components/Reveal';
 import ScrollProgress from './components/ScrollProgress';
 import Skills from './components/Skills';
@@ -42,6 +43,9 @@ function App() {
           <Hero darkMode={darkMode} />
           <Reveal>
             <About darkMode={darkMode} />
+          </Reveal>
+          <Reveal>
+            <Publications darkMode={darkMode} />
           </Reveal>
           <Reveal>
             <Projects darkMode={darkMode} />

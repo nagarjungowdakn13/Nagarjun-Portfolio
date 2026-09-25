@@ -5,7 +5,6 @@ import {
   AlertTriangle,
   Atom,
   Brain,
-  Calendar,
   ChevronDown,
   ChevronUp,
   ExternalLink,
@@ -23,7 +22,7 @@ interface ProjectsProps {
   darkMode: boolean;
 }
 
-type Category = 'AI/ML' | 'Backend' | 'Security' | 'Full Stack' | 'Quantum';
+type Category = 'AI/ML' | 'Backend' | 'Security' | 'Quantum';
 
 interface Project {
   id: string;
@@ -350,34 +349,6 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/nagarjungowdakn13/fraud_detection_recommender',
   },
   {
-    id: 'attendance',
-    title: 'Attendance Management System',
-    tagline: 'Full-stack MERN app with role-based access and REST APIs.',
-    categories: ['Full Stack', 'Backend'],
-    icon: Calendar,
-    problem:
-      'Existing attendance solutions are either spreadsheet-grade or enterprise-grade — nothing in the middle for small institutions.',
-    approach: [
-      'React frontend with role-based views for students, faculty, and admins.',
-      'Express + Node REST API backed by MongoDB.',
-      'JWT-based auth with role guards on every protected endpoint.',
-    ],
-    architecture: [
-      'React SPA → REST API (Express) → MongoDB',
-      'JWT auth middleware + role-based route guards',
-    ],
-    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
-    challenges: [
-      'Designing a role model that\'s strict enough to be safe and flexible enough to be usable.',
-      'Indexing MongoDB collections for date-range queries on attendance records.',
-    ],
-    impact: [
-      'Clean separation between frontend, API, and data layers.',
-      'Role-based access works correctly across all three views.',
-    ],
-    github: 'https://github.com/nagarjungowdakn13/Attendance-Management-System',
-  },
-  {
     id: 'network-monitoring',
     title: 'Network Monitoring and Automation Tool',
     tagline: 'Live device telemetry, alerting, and automated remediation across a multi-host network.',
@@ -427,7 +398,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const FILTERS: ('All' | Category)[] = ['All', 'AI/ML', 'Security', 'Quantum', 'Backend', 'Full Stack'];
+const FILTERS: ('All' | Category)[] = ['All', 'AI/ML', 'Security', 'Quantum', 'Backend'];
 
 export default function Projects({ darkMode }: ProjectsProps) {
   const [filter, setFilter] = useState<'All' | Category>('All');
@@ -448,7 +419,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mb-12 max-w-2xl">
-          <p className={`kicker mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`}>Research & Projects</p>
+          <p className={`kicker mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`}>Projects</p>
           <h2
             className={`font-serif text-3xl sm:text-4xl font-medium tracking-tight mb-4 ${
               darkMode ? 'text-cream' : 'text-ink'
@@ -474,14 +445,14 @@ export default function Projects({ darkMode }: ProjectsProps) {
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-3.5 py-1.5 rounded-md text-[13px] font-medium border transition-colors duration-200 ${
+                className={`px-3.5 py-1.5 rounded-md text-[13px] font-medium border transition-all duration-200 ${
                   active
                     ? darkMode
-                      ? 'bg-cream text-charcoal border-cream'
-                      : 'bg-ink text-paper border-ink'
+                      ? 'bg-brass text-charcoal border-brass shadow-[0_0_0_3px_rgba(217,180,94,0.15)]'
+                      : 'bg-gold text-paper border-gold shadow-[0_0_0_3px_rgba(150,104,28,0.12)]'
                     : darkMode
-                    ? 'border-hairline-dark text-cream-soft hover:text-cream hover:border-white/25'
-                    : 'border-hairline text-ink-soft hover:text-ink hover:border-ink/25'
+                    ? 'border-hairline-dark text-cream-soft hover:text-cream hover:border-brass/40'
+                    : 'border-hairline text-ink-soft hover:text-ink hover:border-gold/40'
                 }`}
               >
                 {f}
@@ -497,10 +468,10 @@ export default function Projects({ darkMode }: ProjectsProps) {
             return (
               <article
                 key={p.id}
-                className={`rounded-lg border overflow-hidden transition-colors duration-300 ${
+                className={`group rounded-lg border overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
                   darkMode
-                    ? 'bg-charcoal border-hairline-dark hover:border-white/25'
-                    : 'bg-paper border-hairline hover:border-ink/25'
+                    ? 'bg-charcoal border-hairline-dark hover:border-brass/40 shadow-card-dark hover:shadow-card-dark-hover'
+                    : 'bg-paper border-hairline hover:border-gold/40 shadow-card hover:shadow-card-hover'
                 } ${isOpen ? 'md:col-span-2' : ''}`}
               >
                 <ProjectPreview project={p} darkMode={darkMode} />
@@ -682,7 +653,9 @@ function ProjectPreview({ project, darkMode }: { project: Project; darkMode: boo
           src={project.image}
           alt={`${project.title} preview`}
           loading="lazy"
-          className={`w-full h-full object-cover ${darkMode ? '' : 'grayscale-[10%]'}`}
+          className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+            darkMode ? '' : 'grayscale-[10%]'
+          }`}
         />
         <div
           className={`absolute inset-0 ${
@@ -702,8 +675,8 @@ function ProjectPreview({ project, darkMode }: { project: Project; darkMode: boo
       }`}
     >
       <div
-        className={`w-11 h-11 rounded-full flex items-center justify-center border ${
-          darkMode ? 'border-hairline-dark text-brass' : 'border-hairline text-gold'
+        className={`w-11 h-11 rounded-full flex items-center justify-center border transition-transform duration-300 group-hover:scale-110 ${
+          darkMode ? 'border-brass/40 text-brass' : 'border-gold/40 text-gold'
         }`}
       >
         <Icon size={20} />

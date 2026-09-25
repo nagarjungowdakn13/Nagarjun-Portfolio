@@ -19,11 +19,20 @@ export default function Hero({ darkMode }: HeroProps) {
   return (
     <section
       id="home"
-      className={`min-h-screen flex items-center relative pt-28 pb-20 ${
+      className={`min-h-screen flex items-center relative overflow-hidden pt-28 pb-20 ${
         darkMode ? 'bg-charcoal' : 'bg-paper'
       }`}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: darkMode
+            ? 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(217,180,94,0.09), transparent 70%)'
+            : 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(150,104,28,0.06), transparent 70%)',
+        }}
+      />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
         <div className="animate-gentle-rise">
           {/* Status line */}
           <div className="flex justify-center mb-10">
@@ -80,22 +89,22 @@ export default function Hero({ darkMode }: HeroProps) {
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-14">
             <button
               onClick={() => scrollTo('projects')}
-              className={`group inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium text-sm transition-colors duration-200 ${
+              className={`group inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium text-sm transition-all duration-200 hover:-translate-y-0.5 ${
                 darkMode
-                  ? 'bg-brass text-charcoal hover:bg-brass/90'
-                  : 'bg-gold text-paper hover:bg-gold/90'
+                  ? 'bg-brass text-charcoal hover:bg-brass/90 shadow-[0_8px_24px_-8px_rgba(217,180,94,0.5)]'
+                  : 'bg-gold text-paper hover:bg-gold/90 shadow-[0_8px_24px_-8px_rgba(150,104,28,0.4)]'
               }`}
             >
-              View Research & Projects
+              View Projects
               <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
             </button>
 
             <button
               onClick={() => scrollTo('contact')}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium text-sm border transition-colors duration-200 ${
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium text-sm border transition-all duration-200 hover:-translate-y-0.5 ${
                 darkMode
-                  ? 'border-hairline-dark text-cream hover:bg-white/5'
-                  : 'border-hairline text-ink hover:bg-paper-soft'
+                  ? 'border-hairline-dark text-cream hover:bg-white/5 hover:border-brass/40'
+                  : 'border-hairline text-ink hover:bg-paper-soft hover:border-gold/40'
               }`}
             >
               <Mail size={15} />
@@ -128,10 +137,10 @@ export default function Hero({ darkMode }: HeroProps) {
                 target={href.startsWith('mailto') ? undefined : '_blank'}
                 rel="noopener noreferrer"
                 aria-label={label}
-                className={`p-2.5 rounded-md border transition-colors duration-200 ${
+                className={`p-2.5 rounded-md border transition-all duration-200 hover:-translate-y-0.5 ${
                   darkMode
-                    ? 'border-hairline-dark text-cream-soft hover:text-cream hover:bg-white/5'
-                    : 'border-hairline text-ink-soft hover:text-ink hover:bg-paper-soft'
+                    ? 'border-hairline-dark text-cream-soft hover:text-brass hover:border-brass/40 hover:bg-white/5'
+                    : 'border-hairline text-ink-soft hover:text-gold hover:border-gold/40 hover:bg-paper-soft'
                 }`}
               >
                 <Icon size={17} />

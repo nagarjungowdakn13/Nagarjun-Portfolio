@@ -100,10 +100,10 @@ export default function Contact({ darkMode }: ContactProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className={`p-2.5 rounded-md border transition-colors duration-200 ${
+                  className={`p-2.5 rounded-md border transition-all duration-200 hover:-translate-y-0.5 ${
                     darkMode
-                      ? 'border-hairline-dark text-cream-soft hover:text-cream hover:bg-white/5'
-                      : 'border-hairline text-ink-soft hover:text-ink hover:bg-paper'
+                      ? 'border-hairline-dark text-cream-soft hover:text-brass hover:border-brass/40 hover:bg-white/5'
+                      : 'border-hairline text-ink-soft hover:text-gold hover:border-gold/40 hover:bg-paper'
                   }`}
                 >
                   <Github size={18} />
@@ -113,10 +113,10 @@ export default function Contact({ darkMode }: ContactProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className={`p-2.5 rounded-md border transition-colors duration-200 ${
+                  className={`p-2.5 rounded-md border transition-all duration-200 hover:-translate-y-0.5 ${
                     darkMode
-                      ? 'border-hairline-dark text-cream-soft hover:text-cream hover:bg-white/5'
-                      : 'border-hairline text-ink-soft hover:text-ink hover:bg-paper'
+                      ? 'border-hairline-dark text-cream-soft hover:text-brass hover:border-brass/40 hover:bg-white/5'
+                      : 'border-hairline text-ink-soft hover:text-gold hover:border-gold/40 hover:bg-paper'
                   }`}
                 >
                   <Linkedin size={18} />
@@ -126,10 +126,10 @@ export default function Contact({ darkMode }: ContactProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LeetCode"
-                  className={`p-2.5 rounded-md border transition-colors duration-200 ${
+                  className={`p-2.5 rounded-md border transition-all duration-200 hover:-translate-y-0.5 ${
                     darkMode
-                      ? 'border-hairline-dark text-cream-soft hover:text-cream hover:bg-white/5'
-                      : 'border-hairline text-ink-soft hover:text-ink hover:bg-paper'
+                      ? 'border-hairline-dark text-cream-soft hover:text-brass hover:border-brass/40 hover:bg-white/5'
+                      : 'border-hairline text-ink-soft hover:text-gold hover:border-gold/40 hover:bg-paper'
                   }`}
                 >
                   <Code2 size={18} />
@@ -209,10 +209,10 @@ export default function Contact({ darkMode }: ContactProps) {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-medium text-sm transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed ${
+                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-medium text-sm transition-all duration-200 hover:-translate-y-0.5 disabled:hover:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed ${
                   darkMode
-                    ? 'bg-brass text-charcoal hover:bg-brass/90'
-                    : 'bg-gold text-paper hover:bg-gold/90'
+                    ? 'bg-brass text-charcoal hover:bg-brass/90 shadow-[0_8px_24px_-8px_rgba(217,180,94,0.5)]'
+                    : 'bg-gold text-paper hover:bg-gold/90 shadow-[0_8px_24px_-8px_rgba(150,104,28,0.4)]'
                 }`}
               >
                 <Send size={16} />

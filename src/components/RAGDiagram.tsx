@@ -3,12 +3,12 @@ interface RAGDiagramProps {
 }
 
 export default function RAGDiagram({ darkMode }: RAGDiagramProps) {
-  const stroke = darkMode ? '#3a3e4a' : '#d8d3c4';
-  const fill = darkMode ? 'rgba(255,255,255,0.02)' : '#ffffff';
-  const text = darkMode ? '#EDEAE0' : '#181A20';
-  const subtext = darkMode ? '#96917F' : '#565A64';
-  const accent = darkMode ? '#D4AF6A' : '#8A5A1F';
-  const accentSoft = darkMode ? 'rgba(212, 175, 106, 0.10)' : 'rgba(138, 90, 31, 0.07)';
+  const stroke = darkMode ? '#243347' : '#dde2ea';
+  const fill = darkMode ? 'rgba(217,180,94,0.02)' : '#ffffff';
+  const text = darkMode ? '#E9ECF3' : '#0B1E3B';
+  const subtext = darkMode ? '#8792A6' : '#4B5768';
+  const accent = darkMode ? '#D9B45E' : '#96681C';
+  const accentSoft = darkMode ? 'rgba(217, 180, 94, 0.10)' : 'rgba(150, 104, 28, 0.07)';
 
   return (
     <div className="w-full overflow-x-auto">

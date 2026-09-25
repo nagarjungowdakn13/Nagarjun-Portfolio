@@ -29,10 +29,13 @@ export default function ScrollProgress({ darkMode }: ScrollProgressProps) {
       aria-hidden="true"
     >
       <div
-        className={`h-full transition-[width] duration-100 ease-out ${
-          darkMode ? 'bg-brass' : 'bg-gold'
-        }`}
-        style={{ width: `${progress}%` }}
+        className="h-full transition-[width] duration-100 ease-out"
+        style={{
+          width: `${progress}%`,
+          background: darkMode
+            ? 'linear-gradient(to right, #B8935A, #D9B45E)'
+            : 'linear-gradient(to right, #7A5518, #96681C)',
+        }}
       />
     </div>
   );
