@@ -105,7 +105,7 @@ export const PUBLICATIONS: Publication[] = [
       'CausalStress: Counterfactual Stress Testing and Causal-Consistency Evaluation for Multivariate Time-Series Forecasters',
     authors: 'Nagarjun Gowda K N, Yashwanth K R',
     venue: '4th Int. Conf. Data Science and Information System (ICDSIS-2027)',
-    status: 'Submitted',
+    status: 'Under Review',
     year: '2026',
     // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
   },
