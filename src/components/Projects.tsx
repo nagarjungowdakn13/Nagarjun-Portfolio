@@ -51,6 +51,8 @@ const PROJECTS: Project[] = [
     categories: ['Quantum', 'Security', 'AI/ML'],
     featured: true,
     icon: Atom,
+    image:
+      'https://raw.githubusercontent.com/nagarjungowdakn13/AI-Driven-Post-Quantum-Cryptographic-Migration-Quantum-Risk-Intelligence-Platform/main/docs/screenshots/02_overview.png',
     problem:
       'Organizations run extensive public-key cryptography (TLS, certificates, signatures) with no visibility into where it lives or how exposed it is to future quantum attacks. Most "quantum readiness" claims are marketing, not measurement.',
     approach: [
@@ -88,6 +90,8 @@ const PROJECTS: Project[] = [
     categories: ['Security', 'AI/ML'],
     featured: true,
     icon: Radar,
+    image:
+      'https://raw.githubusercontent.com/nagarjungowdakn13/Autonomous-AI-System-for-Real-Time-Cyber-Threat-Detection-Investigation-and-Response/main/screenshots/02_overview.png',
     problem:
       'The research question driving this project: can heterogeneous, temporally distributed security telemetry be turned into reliable, explainable, risk-aware autonomous defense decisions — while minimizing false positives and unnecessary interventions?',
     approach: [
@@ -124,6 +128,8 @@ const PROJECTS: Project[] = [
     categories: ['AI/ML', 'Quantum', 'Security'],
     featured: true,
     icon: FlaskConical,
+    image:
+      'https://raw.githubusercontent.com/nagarjungowdakn13/Autonomous-AI-Research-Experimentation-Platform-for-AI-Quantum-Computing-and-Cybersecurity/main/docs/screenshots/02-dashboard.png',
     problem:
       'The research question: can AI agents meaningfully support the scientific workflow — literature → hypothesis → experiment → statistics → critique → conclusion — while preserving reproducibility, evidence grounding, and human oversight? Deliberately not a paper-summarization chatbot, not a generic RAG demo, and not an automated paper writer.',
     approach: [
@@ -228,6 +234,7 @@ const PROJECTS: Project[] = [
     categories: ['Security', 'AI/ML'],
     featured: true,
     icon: Shield,
+    image: 'https://raw.githubusercontent.com/nagarjungowdakn13/CyberShieldNet/main/docs/screenshots/overview.png',
     problem:
       'Threat detection systems usually look at one signal in isolation — IP reputation, login patterns, or graph connectivity. Real attackers light up multiple signals weakly. A single-modality system either misses them or floods analysts with false positives.',
     approach: [
