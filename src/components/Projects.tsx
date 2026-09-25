@@ -3,14 +3,17 @@ import RAGDiagram from './RAGDiagram';
 import {
   Activity,
   AlertTriangle,
+  Atom,
   Brain,
   Calendar,
   ChevronDown,
   ChevronUp,
   ExternalLink,
+  FlaskConical,
   Gauge,
   Github,
   Network,
+  Radar,
   Shield,
   Sparkles,
   Terminal,
@@ -20,7 +23,7 @@ interface ProjectsProps {
   darkMode: boolean;
 }
 
-type Category = 'AI/ML' | 'Backend' | 'Security' | 'Full Stack';
+type Category = 'AI/ML' | 'Backend' | 'Security' | 'Full Stack' | 'Quantum';
 
 interface Project {
   id: string;
@@ -43,6 +46,127 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
+  {
+    id: 'quantum-shield',
+    title: 'QuantumShield — Post-Quantum Cryptographic Migration Platform',
+    tagline: 'AI-driven crypto asset discovery, quantum risk scoring, and PQC migration planning with empirical validation.',
+    categories: ['Quantum', 'Security', 'AI/ML'],
+    featured: true,
+    icon: Atom,
+    gradient: {
+      light: 'from-blue-500 via-indigo-500 to-violet-500',
+      dark: 'from-blue-600 via-indigo-600 to-violet-600',
+    },
+    problem:
+      'Organizations run extensive public-key cryptography (TLS, certificates, signatures) with no visibility into where it lives or how exposed it is to future quantum attacks. Most "quantum readiness" claims are marketing, not measurement.',
+    approach: [
+      'Built a structured pipeline: discover crypto assets → classify algorithms → assess quantum risk → recommend post-quantum (PQC) strategies → benchmark alternatives → simulate migration.',
+      'Enforced a hard rule across the whole project: nothing is allowed to be fabricated. Every metric is either REAL (from executed code), SYNTHETIC, or QUANTUM SIMULATION — labeled explicitly, never blended.',
+      'Ran dual-path risk assessment: a deterministic rule baseline alongside trained AI models (logistic regression, random forest, XGBoost) with SHAP explainability, then validated the AI model\'s edge with statistical significance testing.',
+      'Designed a CryptoProvider interface so algorithm swaps (RSA/ECDSA → ML-KEM/ML-DSA → SLH-DSA) require zero business-logic changes — cryptographic agility as an architectural property, not a promise.',
+    ],
+    architecture: [
+      'Discovery layer → scans a synthetic lab environment (8 services, 42 assets)',
+      'AlgorithmRegistry classification → quantum threat modeling',
+      'Dual risk assessment: rule baseline + AI models (SHAP-explained)',
+      'Recommendation engine → benchmark-aware PQC strategy',
+      'FastAPI + JWT/RBAC audit-logged API → React/TypeScript live dashboard',
+    ],
+    stack: ['Python', 'FastAPI', 'PostgreSQL', 'Qiskit', 'scikit-learn', 'XGBoost', 'SHAP', 'React', 'TypeScript', 'Docker'],
+    challenges: [
+      'Measuring real performance deltas instead of projecting them — validated AI models with paired bootstrap and permutation tests, not eyeballed accuracy.',
+      'Hard-capped quantum simulation at 16 qubits to avoid overstating cryptographic relevance; demonstrated noise sensitivity directly (ideal vs. noisy Grover: 96.14% vs. 43.87% success probability).',
+      'Discovered real data-integrity gaps through testing — PostgreSQL enforced VARCHAR limits that SQLite had silently ignored.',
+      'Reported unexpected results honestly: XGBoost\'s apparent edge over simpler models turned out to be statistically indistinguishable from noise.',
+    ],
+    impact: [
+      'Measured ML-KEM-512 key generation at ~2,000x faster than RSA-2048, with signature size trade-offs quantified (SLH-DSA-SHA2-128F: 17KB vs. ECDSA-P256: 70 bytes).',
+      'Logistic regression significantly outperformed the rule baseline (0.7897 vs. 0.7232 macro-F1, p=0.0005).',
+      'Cryptographic agility proven in practice — three algorithm swaps, zero business-logic rewrites.',
+      '76 passing backend tests and a research audit documenting exactly which claims are verified vs. unverified.',
+    ],
+    github: 'https://github.com/nagarjungowdakn13/AI-Driven-Post-Quantum-Cryptographic-Migration-Quantum-Risk-Intelligence-Platform',
+  },
+  {
+    id: 'cartograph',
+    title: 'CARTOGRAPH — Autonomous Cyber Threat Detection & Response',
+    tagline: 'Fuses ML detection, graph/temporal correlation, and an LLM investigator into policy-gated autonomous defense.',
+    categories: ['Security', 'AI/ML'],
+    featured: true,
+    icon: Radar,
+    gradient: {
+      light: 'from-red-600 via-orange-600 to-amber-500',
+      dark: 'from-red-700 via-orange-700 to-amber-600',
+    },
+    problem:
+      'The research question driving this project: can heterogeneous, temporally distributed security telemetry be turned into reliable, explainable, risk-aware autonomous defense decisions — while minimizing false positives and unnecessary interventions?',
+    approach: [
+      'Built a detection layer spanning rules, random forests, XGBoost, isolation forests, neural networks, and hybrid ensembles — then compared them empirically instead of assuming the fanciest model wins.',
+      'Combined temporal and graph-based correlation to fuse fragmented alerts into coherent incidents.',
+      'Added an LLM-grounded investigation step (with a deterministic templated fallback when no API key is supplied) so decisions come with human-readable reasoning.',
+      'Gated every automated response behind policy checks and verification — autonomy with a leash, not autonomy by default.',
+    ],
+    architecture: [
+      'Ingestion → feature extraction → ML detection (rules / RF / XGBoost / isolation forest / NN / hybrid)',
+      'Temporal + graph correlation → explainable risk scoring',
+      'LLM investigation (grounded, with templated fallback) → policy engine',
+      'Policy-gated response + verification → cyber-range validation → API/dashboard',
+    ],
+    stack: ['Python', 'FastAPI', 'Neo4j', 'Kafka', 'PostgreSQL', 'React', 'TypeScript', 'Prometheus', 'Grafana'],
+    challenges: [
+      'Early statistical claims lacked rigor — rebuilt experiments with bootstrap confidence intervals and repeated trials before trusting any comparison.',
+      'Hybrid and random-forest models were statistically indistinguishable on cyber-range data but diverged on public benchmarks — a reminder that benchmark performance doesn\'t always transfer.',
+      'Graph-only correlation over-merged unrelated alerts; temporal reasoning turned out to be independently necessary, not redundant.',
+      'Found and closed a real security gap: startup validation now blocks running in full mode with insecure default JWT secrets.',
+    ],
+    impact: [
+      'Hybrid model reached F1 0.802 on the NSL-KDD benchmark, best of five models tested.',
+      'Temporal correlation delivered an 11.9x ± 9.7 alert reduction; graph correlation alone reached 120.6x ± 45.7 but over-merged distinct incidents.',
+      '8 of 11 planned experiments executed end-to-end with statistical validation, not estimates.',
+      'Explicitly scoped as a research platform, not production-ready — a limitation stated up front rather than discovered later.',
+    ],
+    github: 'https://github.com/nagarjungowdakn13/Autonomous-AI-System-for-Real-Time-Cyber-Threat-Detection-Investigation-and-Response',
+  },
+  {
+    id: 'researchmind-q',
+    title: 'ResearchMind-Q — Evidence-Grounded AI Research Assistant',
+    tagline: 'Human-gated AI agents that run the scientific workflow — hypothesis to statistics to conclusion — across AI, quantum computing, and cybersecurity.',
+    categories: ['AI/ML', 'Quantum', 'Security'],
+    featured: true,
+    icon: FlaskConical,
+    gradient: {
+      light: 'from-fuchsia-600 via-purple-600 to-indigo-600',
+      dark: 'from-fuchsia-700 via-purple-700 to-indigo-700',
+    },
+    problem:
+      'The research question: can AI agents meaningfully support the scientific workflow — literature → hypothesis → experiment → statistics → critique → conclusion — while preserving reproducibility, evidence grounding, and human oversight? Deliberately not a paper-summarization chatbot, not a generic RAG demo, and not an automated paper writer.',
+    approach: [
+      'Tagged every claim with explicit evidence provenance: REPORTED_IN_LITERATURE, AI_INFERRED, HYPOTHESIZED, SIMULATED, EXPERIMENTALLY_OBSERVED, or HUMAN_VERIFIED — no claim is allowed to hide its own confidence.',
+      'Isolated experiment execution behind a two-tier sandbox: Docker for arbitrary code, a restricted process tier for pre-reviewed templates, with explicit configuration gates.',
+      'Required two independently-checked, audit-logged human approvals before any experiment executes — autonomy that still keeps a human in the loop.',
+      'Kept statistics LLM-free by design: every metric is computed by numpy/scipy over real data, never asked of or phrased by a language model.',
+    ],
+    architecture: [
+      'FastAPI + SQLAlchemy backend — agents for hypothesis drafting, critique, gap analysis, synthesis',
+      'Sandboxed experiment executor (Docker / restricted process tier)',
+      'Research Knowledge Graph (schema-as-data ontology) → SQLite (dev) / PostgreSQL + Neo4j (prod)',
+      'React/TypeScript frontend — dashboard, experiment approval, quantum lab, audit log',
+    ],
+    stack: ['Python', 'FastAPI', 'SQLAlchemy', 'PostgreSQL', 'Neo4j', 'Docker', 'React', 'TypeScript', 'NumPy', 'SciPy'],
+    challenges: [
+      'Prevented LLM hallucination at the source by excluding LLM calls from the statistics module entirely — no metric is ever "phrased" by a model.',
+      'Enforced reproducibility without fabrication: every output traces back to a research/ or reproducibility/ directory with a full audit trail.',
+      'Documented a real production-verification gap honestly — a disk-space incident during development blocked Docker validation of the full Postgres + Neo4j topology, recorded in ADRs rather than hidden.',
+      'Built per-agent guardrails: fixed-vocabulary rejection, add-only critique, evidence-derived confidence scoring, and numeric consistency checks.',
+    ],
+    impact: [
+      '87 passing tests with no external service dependencies for core functionality.',
+      'Six reproducible experiments (demos, AI model comparison, IDS comparison, ablation studies) with real output artifacts.',
+      'Every subsystem status is documented as VERIFIED, IMPLEMENTED, or NOT_IMPLEMENTED in a public research audit — honesty as a design constraint, not an afterthought.',
+      'ADR-driven architecture decisions published openly; includes an evidence package specifically assembled for graduate-admissions validation.',
+    ],
+    github: 'https://github.com/nagarjungowdakn13/Autonomous-AI-Research-Experimentation-Platform-for-AI-Quantum-Computing-and-Cybersecurity',
+  },
   {
     id: 'rag-qa',
     title: 'RAG-based AI Question Answering System',
@@ -348,7 +472,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const FILTERS: ('All' | Category)[] = ['All', 'AI/ML', 'Backend', 'Security', 'Full Stack'];
+const FILTERS: ('All' | Category)[] = ['All', 'AI/ML', 'Security', 'Quantum', 'Backend', 'Full Stack'];
 
 export default function Projects({ darkMode }: ProjectsProps) {
   const [filter, setFilter] = useState<'All' | Category>('All');

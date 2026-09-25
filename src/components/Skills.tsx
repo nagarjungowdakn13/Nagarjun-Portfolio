@@ -1,4 +1,4 @@
-import { Brain, Cloud, Code2, Database, GitBranch, ServerCog, ShieldCheck, Star } from 'lucide-react';
+import { Atom, Brain, Cloud, Code2, Database, GitBranch, ServerCog, ShieldCheck, Star } from 'lucide-react';
 
 interface SkillsProps {
   darkMode: boolean;
@@ -57,12 +57,24 @@ const SKILL_GROUPS: SkillGroup[] = [
   {
     category: 'Security & Networking',
     icon: ShieldCheck,
-    description: 'Anomaly detection, threat scoring, and live monitoring.',
+    description: 'Anomaly detection, threat scoring, autonomous response, and live monitoring.',
     skills: [
       { name: 'Network Anomaly Detection', strong: true },
-      { name: 'Sensitive-data classification' },
+      { name: 'Autonomous Threat Detection & Response' },
+      { name: 'Graph / Temporal Correlation' },
       { name: 'Multi-modal threat scoring' },
       { name: 'Drift monitoring' },
+    ],
+  },
+  {
+    category: 'Quantum & Cryptography',
+    icon: Atom,
+    description: 'Applied post-quantum cryptography and quantum risk assessment.',
+    skills: [
+      { name: 'Post-Quantum Cryptography (ML-KEM / ML-DSA)', strong: true },
+      { name: 'Qiskit / Quantum Simulation' },
+      { name: 'Cryptographic Agility' },
+      { name: 'SHAP / Explainable AI' },
     ],
   },
   {

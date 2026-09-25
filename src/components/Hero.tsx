@@ -59,7 +59,7 @@ export default function Hero({ darkMode }: HeroProps) {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              Open to opportunities — internships & full-time SWE/ML roles
+              Applying to MS in Computer Science programs — Fall 2027
             </div>
           </div>
 
@@ -100,7 +100,7 @@ export default function Hero({ darkMode }: HeroProps) {
               darkMode ? 'text-slate-200' : 'text-slate-700'
             }`}
           >
-            I build <span className="font-medium">AI/ML systems</span>, <span className="font-medium">security tooling</span>, and <span className="font-medium">backend platforms</span> that ship.
+            I build and research <span className="font-medium">AI/ML systems</span>, <span className="font-medium">security tooling</span>, and <span className="font-medium">applied cryptography</span> with the rigor of a lab, not a demo.
           </p>
 
           {/* Value prop */}
@@ -109,8 +109,10 @@ export default function Hero({ darkMode }: HeroProps) {
               darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            CS engineering student based in Bengaluru. I focus on production-grade RAG pipelines, LLM evaluation,
-            real-time anomaly detection, and end-to-end automation — projects with real architecture, not just demos.
+            CS engineering student based in Bengaluru, applying to MS programs in Computer Science in the US.
+            My work spans production-grade RAG pipelines, LLM evaluation, post-quantum cryptographic risk assessment,
+            autonomous threat detection, and real-time anomaly detection — each one built with empirical validation,
+            not just a working demo.
           </p>
 
           {/* CTAs */}

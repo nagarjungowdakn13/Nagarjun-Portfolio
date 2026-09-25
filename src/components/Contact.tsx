@@ -71,8 +71,8 @@ export default function Contact({ darkMode }: ContactProps) {
               darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            I'm currently <span className={`font-medium ${darkMode ? 'text-emerald-300' : 'text-emerald-600'}`}>open to internships and full-time SWE / ML roles</span>.
-            Best way to reach me is email — I usually reply within a day.
+            I'm currently <span className={`font-medium ${darkMode ? 'text-emerald-300' : 'text-emerald-600'}`}>applying to MS in Computer Science programs in the US</span>, focused on
+            AI/ML and security research. Best way to reach me is email — I usually reply within a day.
           </p>
         </div>
 
@@ -170,7 +170,7 @@ export default function Contact({ darkMode }: ContactProps) {
                     darkMode ? 'text-emerald-300' : 'text-emerald-700'
                   }`}
                 >
-                  Open to opportunities
+                  Applying to MS programs — Fall 2027
                 </p>
               </div>
               <p
@@ -178,7 +178,8 @@ export default function Contact({ darkMode }: ContactProps) {
                   darkMode ? 'text-emerald-200/80' : 'text-emerald-800/80'
                 }`}
               >
-                Looking for SWE / ML / Backend roles where I can build real systems and learn from senior engineers.
+                Happy to connect with faculty, labs, and admissions committees interested in AI/ML, security, or
+                applied cryptography research.
               </p>
             </div>
           </div>
