@@ -5,7 +5,7 @@ interface PublicationsProps {
   darkMode: boolean;
 }
 
-const STATUS_ORDER: PublicationStatus[] = ['Published', 'Accepted', 'Under Review', 'Preprint'];
+const STATUS_ORDER: PublicationStatus[] = ['Published', 'Accepted', 'Under Review', 'Submitted', 'Preprint'];
 
 export default function Publications({ darkMode }: PublicationsProps) {
   if (PUBLICATIONS.length === 0) return null;
