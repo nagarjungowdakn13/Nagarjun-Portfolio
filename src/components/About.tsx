@@ -31,21 +31,17 @@ export default function About({ darkMode }: AboutProps) {
   return (
     <section
       id="about"
-      className={`py-24 ${darkMode ? 'bg-slate-950' : 'bg-white'} transition-colors duration-300`}
+      className={`py-24 border-t ${
+        darkMode ? 'bg-charcoal border-hairline-dark' : 'bg-paper border-hairline'
+      } transition-colors duration-300`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-16">
-          <p
-            className={`text-sm font-mono uppercase tracking-widest mb-3 ${
-              darkMode ? 'text-purple-400' : 'text-orange-500'
-            }`}
-          >
-            // about
-          </p>
+        <div className="mb-16">
+          <p className={`kicker mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`}>About</p>
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight ${
-              darkMode ? 'text-white' : 'text-slate-900'
+            className={`font-serif text-3xl sm:text-4xl font-medium tracking-tight ${
+              darkMode ? 'text-cream' : 'text-ink'
             }`}
           >
             Engineering, not just shipping features.
@@ -55,50 +51,23 @@ export default function About({ darkMode }: AboutProps) {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Photo + meta */}
           <div className="lg:col-span-2">
-            <div className="relative w-64 sm:w-72 mx-auto group">
-              {/* soft gradient halo */}
+            <div className="w-56 sm:w-64 mx-auto lg:mx-0">
               <div
-                aria-hidden
-                className={`absolute -inset-5 rounded-[2.25rem] blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 ${
-                  darkMode
-                    ? 'bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500'
-                    : 'bg-gradient-to-br from-orange-300 via-rose-300 to-pink-300'
-                }`}
-              />
-
-              {/* portrait frame */}
-              <div
-                className={`relative z-10 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl ring-1 transition-transform duration-500 group-hover:scale-[1.02] ${
-                  darkMode ? 'ring-white/15 bg-slate-900' : 'ring-slate-900/10 bg-slate-100'
+                className={`aspect-[4/5] rounded-lg overflow-hidden border ${
+                  darkMode ? 'border-hairline-dark bg-charcoal-soft' : 'border-hairline bg-paper-soft'
                 }`}
               >
                 <img
                   src="/Nagarjun Photo.jpg"
                   alt="Nagarjun Gowda K N"
                   loading="lazy"
-                  className="w-full h-full object-cover origin-top"
+                  className="w-full h-full object-cover grayscale-[15%] origin-top"
                   style={{ objectPosition: '50% 0%', transform: 'scale(1.25)' }}
                 />
-
-                {/* bottom gradient — masks the printed caption in the photo */}
-                <div
-                  aria-hidden
-                  className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/90 via-black/45 to-transparent"
-                />
-
-                {/* nameplate */}
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="text-white font-semibold tracking-tight text-[15px] leading-tight">
-                    Nagarjun Gowda K N
-                  </p>
-                  <p className="text-white/75 text-[11px] font-mono mt-1 uppercase tracking-[0.18em]">
-                    AI · Security · Cryptography
-                  </p>
-                </div>
               </div>
             </div>
 
-            <div className="mt-8 space-y-3 max-w-xs mx-auto">
+            <div className="mt-8 space-y-3 max-w-xs mx-auto lg:mx-0">
               {[
                 { icon: MapPin, label: 'Bengaluru, Karnataka, India' },
                 { icon: GraduationCap, label: 'B.E. Computer Science Engineering' },
@@ -108,10 +77,10 @@ export default function About({ darkMode }: AboutProps) {
                 <div
                   key={label}
                   className={`flex items-center gap-3 text-sm ${
-                    darkMode ? 'text-slate-300' : 'text-slate-600'
+                    darkMode ? 'text-cream-soft' : 'text-ink-soft'
                   }`}
                 >
-                  <Icon size={16} className={darkMode ? 'text-purple-400' : 'text-orange-500'} />
+                  <Icon size={15} className={darkMode ? 'text-brass' : 'text-gold'} />
                   <span>{label}</span>
                 </div>
               ))}
@@ -121,20 +90,20 @@ export default function About({ darkMode }: AboutProps) {
           {/* Story + focus */}
           <div className="lg:col-span-3 space-y-8">
             <div
-              className={`text-lg leading-relaxed space-y-5 ${
-                darkMode ? 'text-slate-300' : 'text-slate-700'
+              className={`text-[17px] leading-relaxed space-y-5 ${
+                darkMode ? 'text-cream-soft' : 'text-ink-soft'
               }`}
             >
               <p>
                 I'm a Computer Science engineer who got into building things the hard way — by debugging
                 production-shaped problems on side projects long before anyone asked me to. I started with
                 automation scripts, drifted into ML when I realized real systems live or die by their data
-                pipeline, and now spend most of my time at the intersection of <span className={`font-medium ${darkMode ? 'text-white' : 'text-slate-900'}`}>AI, security, and applied
+                pipeline, and now spend most of my time at the intersection of <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>AI, security, and applied
                 cryptography</span>. I'm applying to MS in Computer Science programs to push that work further
                 than a side project can take it.
               </p>
               <p>
-                The problems I gravitate toward have a common shape: <span className={`font-medium ${darkMode ? 'text-white' : 'text-slate-900'}`}>messy real-world data, an
+                The problems I gravitate toward have a common shape: <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>messy real-world data, an
                 ambiguous decision boundary, and a feedback loop that has to run reliably</span>. Whether
                 that's grounding an LLM against a private corpus, scoring quantum risk across a cryptographic
                 asset inventory, or fusing signals into an autonomous threat-response system — the challenge is
@@ -159,23 +128,17 @@ export default function About({ darkMode }: AboutProps) {
               {FOCUS_AREAS.map(({ icon: Icon, title, body }) => (
                 <div
                   key={title}
-                  className={`p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
+                  className={`p-5 rounded-lg border transition-colors duration-200 ${
                     darkMode
-                      ? 'bg-white/5 border-white/10 hover:bg-white/[0.07]'
-                      : 'bg-white border-slate-200 hover:shadow-lg'
+                      ? 'border-hairline-dark hover:border-white/20'
+                      : 'border-hairline hover:border-ink/20'
                   }`}
                 >
-                  <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
-                      darkMode ? 'bg-purple-500/15 text-purple-300' : 'bg-orange-50 text-orange-500'
-                    }`}
-                  >
-                    <Icon size={20} />
-                  </div>
-                  <h3 className={`font-semibold mb-1.5 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                  <Icon size={18} className={`mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`} />
+                  <h3 className={`font-semibold mb-1.5 text-sm ${darkMode ? 'text-cream' : 'text-ink'}`}>
                     {title}
                   </h3>
-                  <p className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                  <p className={`text-sm leading-relaxed ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                     {body}
                   </p>
                 </div>

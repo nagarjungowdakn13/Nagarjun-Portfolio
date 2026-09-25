@@ -45,33 +45,23 @@ export default function Contact({ darkMode }: ContactProps) {
   return (
     <section
       id="contact"
-      className={`py-24 ${
-        darkMode ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-slate-50 to-white'
+      className={`py-24 border-t ${
+        darkMode ? 'bg-charcoal-soft border-hairline-dark' : 'bg-paper-soft border-hairline'
       } transition-colors duration-300`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <p
-            className={`text-sm font-mono uppercase tracking-widest mb-3 ${
-              darkMode ? 'text-purple-400' : 'text-orange-500'
-            }`}
-          >
-            // contact
-          </p>
+        <div className="mb-12 max-w-2xl">
+          <p className={`kicker mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`}>Contact</p>
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 ${
-              darkMode ? 'text-white' : 'text-slate-900'
+            className={`font-serif text-3xl sm:text-4xl font-medium tracking-tight mb-4 ${
+              darkMode ? 'text-cream' : 'text-ink'
             }`}
           >
-            Let's build something
+            Let's talk
           </h2>
-          <p
-            className={`text-lg max-w-2xl mx-auto leading-relaxed ${
-              darkMode ? 'text-slate-400' : 'text-slate-600'
-            }`}
-          >
-            I'm currently <span className={`font-medium ${darkMode ? 'text-emerald-300' : 'text-emerald-600'}`}>applying to MS in Computer Science programs in the US</span>, focused on
+          <p className={`text-base leading-relaxed ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
+            I'm currently <span className={`font-medium ${darkMode ? 'text-brass' : 'text-gold'}`}>applying to MS in Computer Science programs in the US</span>, focused on
             AI/ML and security research. Best way to reach me is email — I usually reply within a day.
           </p>
         </div>
@@ -103,81 +93,59 @@ export default function Contact({ darkMode }: ContactProps) {
             </div>
 
             <div className="pt-4">
-              <p
-                className={`text-xs font-mono uppercase tracking-widest mb-3 ${
-                  darkMode ? 'text-slate-500' : 'text-slate-400'
-                }`}
-              >
-                // elsewhere
-              </p>
-              <div className="flex gap-3">
+              <p className={`kicker mb-3 ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>Elsewhere</p>
+              <div className="flex gap-2">
                 <a
                   href={SOCIAL.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className={`p-3 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 ${
+                  className={`p-2.5 rounded-md border transition-colors duration-200 ${
                     darkMode
-                      ? 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:text-white'
-                      : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                      ? 'border-hairline-dark text-cream-soft hover:text-cream hover:bg-white/5'
+                      : 'border-hairline text-ink-soft hover:text-ink hover:bg-paper'
                   }`}
                 >
-                  <Github size={20} />
+                  <Github size={18} />
                 </a>
                 <a
                   href={SOCIAL.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className={`p-3 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 ${
+                  className={`p-2.5 rounded-md border transition-colors duration-200 ${
                     darkMode
-                      ? 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:text-white'
-                      : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                      ? 'border-hairline-dark text-cream-soft hover:text-cream hover:bg-white/5'
+                      : 'border-hairline text-ink-soft hover:text-ink hover:bg-paper'
                   }`}
                 >
-                  <Linkedin size={20} />
+                  <Linkedin size={18} />
                 </a>
                 <a
                   href={SOCIAL.leetcode}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LeetCode"
-                  className={`p-3 rounded-xl border transition-all duration-200 hover:-translate-y-0.5 ${
+                  className={`p-2.5 rounded-md border transition-colors duration-200 ${
                     darkMode
-                      ? 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:text-white'
-                      : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                      ? 'border-hairline-dark text-cream-soft hover:text-cream hover:bg-white/5'
+                      : 'border-hairline text-ink-soft hover:text-ink hover:bg-paper'
                   }`}
                 >
-                  <Code2 size={20} />
+                  <Code2 size={18} />
                 </a>
               </div>
             </div>
 
             <div
-              className={`rounded-2xl p-5 border ${
-                darkMode
-                  ? 'bg-emerald-500/5 border-emerald-400/20'
-                  : 'bg-emerald-50 border-emerald-200'
+              className={`rounded-lg p-5 border ${
+                darkMode ? 'border-hairline-dark' : 'border-hairline'
               }`}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                </span>
-                <p
-                  className={`text-sm font-semibold ${
-                    darkMode ? 'text-emerald-300' : 'text-emerald-700'
-                  }`}
-                >
-                  Applying to MS programs — Fall 2027
-                </p>
-              </div>
-              <p
-                className={`text-xs leading-relaxed ${
-                  darkMode ? 'text-emerald-200/80' : 'text-emerald-800/80'
-                }`}
-              >
+              <p className={`text-sm font-semibold mb-2 ${darkMode ? 'text-brass' : 'text-gold'}`}>
+                Applying to MS programs — Fall 2027
+              </p>
+              <p className={`text-xs leading-relaxed ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                 Happy to connect with faculty, labs, and admissions committees interested in AI/ML, security, or
                 applied cryptography research.
               </p>
@@ -186,8 +154,8 @@ export default function Contact({ darkMode }: ContactProps) {
 
           {/* Form */}
           <div
-            className={`lg:col-span-3 rounded-2xl p-7 sm:p-9 border ${
-              darkMode ? 'bg-white/[0.03] border-white/10' : 'bg-white border-slate-200 shadow-lg'
+            className={`lg:col-span-3 rounded-lg p-7 sm:p-9 border ${
+              darkMode ? 'border-hairline-dark' : 'border-hairline bg-paper'
             }`}
           >
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -216,8 +184,8 @@ export default function Contact({ darkMode }: ContactProps) {
               <div>
                 <label
                   htmlFor="message"
-                  className={`block text-xs font-mono uppercase tracking-widest mb-2 ${
-                    darkMode ? 'text-slate-400' : 'text-slate-500'
+                  className={`block text-xs font-medium uppercase tracking-widest mb-2 ${
+                    darkMode ? 'text-cream-soft' : 'text-ink-soft'
                   }`}
                 >
                   Message
@@ -230,10 +198,10 @@ export default function Contact({ darkMode }: ContactProps) {
                   required
                   rows={6}
                   placeholder="What are you working on, and how can I help?"
-                  className={`w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200 focus:ring-2 focus:outline-none resize-none ${
+                  className={`w-full px-4 py-3 rounded-md border text-sm transition-colors duration-200 focus:ring-1 focus:outline-none resize-none ${
                     darkMode
-                      ? 'bg-white/5 border-white/10 text-white placeholder-slate-500 focus:ring-purple-500/40 focus:border-purple-400/40'
-                      : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:ring-orange-500/30 focus:border-orange-400'
+                      ? 'bg-charcoal border-hairline-dark text-cream placeholder-cream-soft/60 focus:ring-brass focus:border-brass'
+                      : 'bg-paper border-hairline text-ink placeholder-ink-soft/60 focus:ring-gold focus:border-gold'
                   }`}
                 />
               </div>
@@ -241,13 +209,13 @@ export default function Contact({ darkMode }: ContactProps) {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-medium text-base text-white transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed ${
+                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-medium text-sm transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed ${
                   darkMode
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500'
-                    : 'bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600'
+                    ? 'bg-brass text-charcoal hover:bg-brass/90'
+                    : 'bg-gold text-paper hover:bg-gold/90'
                 }`}
               >
-                <Send size={18} />
+                <Send size={16} />
                 {status === 'sending'
                   ? 'Opening your mail app...'
                   : status === 'success'
@@ -280,21 +248,17 @@ function ContactRow({
   const content = (
     <>
       <div
-        className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${
-          darkMode ? 'bg-purple-500/15 text-purple-300' : 'bg-orange-50 text-orange-500'
+        className={`w-10 h-10 rounded-md flex items-center justify-center flex-shrink-0 border ${
+          darkMode ? 'border-hairline-dark text-brass' : 'border-hairline text-gold'
         }`}
       >
-        <Icon size={18} />
+        <Icon size={16} />
       </div>
       <div className="min-w-0">
-        <p
-          className={`text-[11px] font-mono uppercase tracking-widest mb-0.5 ${
-            darkMode ? 'text-slate-500' : 'text-slate-400'
-          }`}
-        >
+        <p className={`text-[11px] uppercase tracking-widest mb-0.5 ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
           {label}
         </p>
-        <p className={`text-sm font-medium truncate ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
+        <p className={`text-sm font-medium truncate ${darkMode ? 'text-cream' : 'text-ink'}`}>
           {value}
         </p>
       </div>
@@ -305,8 +269,8 @@ function ContactRow({
     return (
       <a
         href={href}
-        className={`flex items-center gap-4 p-3 -mx-3 rounded-xl transition-colors ${
-          darkMode ? 'hover:bg-white/5' : 'hover:bg-slate-50'
+        className={`flex items-center gap-4 p-3 -mx-3 rounded-md transition-colors ${
+          darkMode ? 'hover:bg-white/5' : 'hover:bg-paper'
         }`}
       >
         {content}
@@ -328,8 +292,8 @@ function Field({
     <div>
       <label
         htmlFor={props.id}
-        className={`block text-xs font-mono uppercase tracking-widest mb-2 ${
-          darkMode ? 'text-slate-400' : 'text-slate-500'
+        className={`block text-xs font-medium uppercase tracking-widest mb-2 ${
+          darkMode ? 'text-cream-soft' : 'text-ink-soft'
         }`}
       >
         {label}
@@ -337,10 +301,10 @@ function Field({
       <input
         {...props}
         required
-        className={`w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200 focus:ring-2 focus:outline-none ${
+        className={`w-full px-4 py-3 rounded-md border text-sm transition-colors duration-200 focus:ring-1 focus:outline-none ${
           darkMode
-            ? 'bg-white/5 border-white/10 text-white placeholder-slate-500 focus:ring-purple-500/40 focus:border-purple-400/40'
-            : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:ring-orange-500/30 focus:border-orange-400'
+            ? 'bg-charcoal border-hairline-dark text-cream placeholder-cream-soft/60 focus:ring-brass focus:border-brass'
+            : 'bg-paper border-hairline text-ink placeholder-ink-soft/60 focus:ring-gold focus:border-gold'
         }`}
       />
     </div>

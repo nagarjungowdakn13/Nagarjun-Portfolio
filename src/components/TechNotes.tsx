@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  ArrowUpRight,
   BookOpen,
   Brain,
   ChevronDown,
@@ -86,7 +85,7 @@ const NOTES: Note[] = [
         </List>
 
         <H>The "I don't know" pattern</H>
-        <Code>
+        <Code darkMode={darkMode}>
 {`# Pseudocode — the gate that most RAG pipelines skip
 SIM_THRESHOLD = 0.45  # tune per corpus
 
@@ -153,7 +152,7 @@ def answer(query: str) -> Response:
           checkpoint <em>before and after</em> it executes. If the worker crashes between, the next
           run knows exactly where to pick up — and steps that already completed are skipped.
         </P>
-        <Code>
+        <Code darkMode={darkMode}>
 {`# Each task step writes a checkpoint
 def run_step(task_id: str, step_idx: int, action):
     if checkpoint.exists(task_id, step_idx, status="done"):
@@ -182,7 +181,7 @@ def run_step(task_id: str, step_idx: int, action):
           declarative JSON are version-controllable, diff-able, and auditable. The runtime stays
           dumb; the data is smart.
         </P>
-        <Code>
+        <Code darkMode={darkMode}>
 {`{
   "task_id": "month-end-report-2026-04",
   "steps": [
@@ -251,7 +250,7 @@ def run_step(task_id: str, step_idx: int, action):
           window. Plot it. When it crosses a threshold, the model is operating off-distribution and
           you should retrain.
         </P>
-        <Code>
+        <Code darkMode={darkMode}>
 {`from scipy.stats import ks_2samp
 
 def feature_drift(reference: np.ndarray, current: np.ndarray) -> dict:
@@ -282,90 +281,72 @@ export default function TechNotes({ darkMode }: TechNotesProps) {
   return (
     <section
       id="notes"
-      className={`py-24 ${darkMode ? 'bg-slate-950' : 'bg-white'} transition-colors duration-300`}
+      className={`py-24 border-t ${
+        darkMode ? 'bg-charcoal border-hairline-dark' : 'bg-paper border-hairline'
+      } transition-colors duration-300`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <p
-            className={`text-sm font-mono uppercase tracking-widest mb-3 ${
-              darkMode ? 'text-purple-400' : 'text-orange-500'
-            }`}
-          >
-            // tech notes
-          </p>
+        <div className="mb-12 max-w-2xl">
+          <p className={`kicker mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`}>Notes</p>
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 ${
-              darkMode ? 'text-white' : 'text-slate-900'
+            className={`font-serif text-3xl sm:text-4xl font-medium tracking-tight mb-4 ${
+              darkMode ? 'text-cream' : 'text-ink'
             }`}
           >
             Things I've learned the hard way
           </h2>
-          <p
-            className={`text-lg max-w-2xl mx-auto leading-relaxed ${
-              darkMode ? 'text-slate-400' : 'text-slate-600'
-            }`}
-          >
+          <p className={`text-base leading-relaxed ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
             Long-form notes on RAG, automation design, and ML in production — the stuff you only
             learn by shipping it and debugging it on a Sunday night.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {NOTES.map(({ id, icon: Icon, tag, title, readTime, summary, takeaways, body }) => {
             const isOpen = open === id;
             return (
               <article
                 key={id}
-                className={`rounded-2xl border transition-all duration-300 ${
+                className={`rounded-lg border transition-colors duration-300 ${
                   darkMode
-                    ? 'bg-white/[0.03] border-white/10 hover:border-white/20'
-                    : 'bg-white border-slate-200 hover:shadow-lg'
-                } ${isOpen ? 'md:col-span-3' : 'hover:-translate-y-1'}`}
+                    ? 'bg-charcoal border-hairline-dark hover:border-white/25'
+                    : 'bg-paper border-hairline hover:border-ink/25'
+                } ${isOpen ? 'md:col-span-3' : ''}`}
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div
-                      className={`inline-flex items-center gap-2 px-2.5 py-1 rounded-md text-[11px] font-mono ${
-                        darkMode ? 'bg-purple-500/10 text-purple-300' : 'bg-orange-50 text-orange-700'
+                      className={`inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-wide ${
+                        darkMode ? 'text-brass' : 'text-gold'
                       }`}
                     >
                       <Icon size={12} />
                       {tag}
                     </div>
-                    <span className={`text-[11px] ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                    <span className={`text-[11px] ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                       {readTime}
                     </span>
                   </div>
 
                   <h3
-                    className={`text-lg font-semibold mb-3 leading-snug ${
-                      darkMode ? 'text-white' : 'text-slate-900'
+                    className={`font-serif text-lg font-medium mb-3 leading-snug ${
+                      darkMode ? 'text-cream' : 'text-ink'
                     }`}
                   >
                     {title}
                   </h3>
-                  <p
-                    className={`text-sm leading-relaxed mb-4 ${
-                      darkMode ? 'text-slate-400' : 'text-slate-600'
-                    }`}
-                  >
+                  <p className={`text-sm leading-relaxed mb-4 ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                     {summary}
                   </p>
 
                   {!isOpen && (
-                    <div className={`pt-4 border-t mb-4 ${darkMode ? 'border-white/10' : 'border-slate-200'}`}>
-                      <p
-                        className={`text-[10px] font-mono uppercase tracking-widest mb-2 ${
-                          darkMode ? 'text-slate-500' : 'text-slate-400'
-                        }`}
-                      >
-                        // takeaways
-                      </p>
-                      <ul className={`space-y-1.5 text-sm ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                    <div className={`pt-4 border-t mb-4 ${darkMode ? 'border-hairline-dark' : 'border-hairline'}`}>
+                      <p className={`kicker mb-2 ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>Takeaways</p>
+                      <ul className={`space-y-1.5 text-sm ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                         {takeaways.map((t, i) => (
                           <li key={i} className="flex gap-2">
-                            <span className={darkMode ? 'text-purple-400' : 'text-orange-500'}>›</span>
+                            <span className={darkMode ? 'text-brass' : 'text-gold'}>›</span>
                             <span>{t}</span>
                           </li>
                         ))}
@@ -375,10 +356,10 @@ export default function TechNotes({ darkMode }: TechNotesProps) {
 
                   <button
                     onClick={() => setOpen(isOpen ? null : id)}
-                    className={`inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg border transition-all ${
+                    className={`inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-md border transition-colors ${
                       darkMode
-                        ? 'border-white/10 text-slate-300 hover:bg-white/5'
-                        : 'border-slate-200 text-slate-700 hover:bg-slate-50'
+                        ? 'border-hairline-dark text-cream-soft hover:bg-white/5'
+                        : 'border-hairline text-ink-soft hover:bg-paper-soft'
                     }`}
                     aria-expanded={isOpen}
                   >
@@ -390,7 +371,7 @@ export default function TechNotes({ darkMode }: TechNotesProps) {
                 {isOpen && (
                   <div
                     className={`px-6 pb-8 pt-2 border-t animate-fade-in ${
-                      darkMode ? 'border-white/10' : 'border-slate-200'
+                      darkMode ? 'border-hairline-dark' : 'border-hairline'
                     }`}
                   >
                     {body(darkMode)}
@@ -401,9 +382,7 @@ export default function TechNotes({ darkMode }: TechNotesProps) {
           })}
         </div>
 
-        <div
-          className={`mt-12 text-center text-sm ${darkMode ? 'text-slate-500' : 'text-slate-500'}`}
-        >
+        <div className={`mt-12 text-sm ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
           <BookOpen size={14} className="inline mr-2" />
           More posts as I ship more systems. The code is always the canonical source.
         </div>
@@ -420,7 +399,7 @@ function PostBody({ children, darkMode }: { children: React.ReactNode; darkMode:
   return (
     <div
       className={`mt-6 max-w-3xl mx-auto space-y-5 text-[15px] leading-relaxed ${
-        darkMode ? 'text-slate-300' : 'text-slate-700'
+        darkMode ? 'text-cream-soft' : 'text-ink-soft'
       }`}
     >
       {children}
@@ -430,7 +409,7 @@ function PostBody({ children, darkMode }: { children: React.ReactNode; darkMode:
 
 function H({ children }: { children: React.ReactNode }) {
   return (
-    <h4 className="text-lg font-semibold pt-2 text-current">
+    <h4 className="font-serif text-lg font-medium pt-2 text-current">
       {children}
     </h4>
   );
@@ -448,9 +427,15 @@ function List({ children }: { children: React.ReactNode }) {
   return <ul className="space-y-2 list-disc pl-5">{children}</ul>;
 }
 
-function Code({ children }: { children: React.ReactNode }) {
+function Code({ children, darkMode }: { children: React.ReactNode; darkMode: boolean }) {
   return (
-    <pre className="font-mono text-[12.5px] leading-relaxed bg-slate-900/80 text-slate-100 rounded-xl p-4 overflow-x-auto border border-white/10">
+    <pre
+      className={`font-mono text-[12.5px] leading-relaxed rounded-lg p-4 overflow-x-auto border ${
+        darkMode
+          ? 'bg-charcoal-soft text-cream border-hairline-dark'
+          : 'bg-paper-soft text-ink border-hairline'
+      }`}
+    >
       <code>{children}</code>
     </pre>
   );

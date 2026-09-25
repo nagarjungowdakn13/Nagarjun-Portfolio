@@ -3,12 +3,12 @@ interface RAGDiagramProps {
 }
 
 export default function RAGDiagram({ darkMode }: RAGDiagramProps) {
-  const stroke = darkMode ? '#475569' : '#cbd5e1';
-  const fill = darkMode ? 'rgba(255,255,255,0.03)' : '#ffffff';
-  const text = darkMode ? '#e2e8f0' : '#334155';
-  const subtext = darkMode ? '#94a3b8' : '#64748b';
-  const accent = darkMode ? '#a78bfa' : '#f97316';
-  const accentSoft = darkMode ? 'rgba(167, 139, 250, 0.12)' : 'rgba(249, 115, 22, 0.08)';
+  const stroke = darkMode ? '#3a3e4a' : '#d8d3c4';
+  const fill = darkMode ? 'rgba(255,255,255,0.02)' : '#ffffff';
+  const text = darkMode ? '#EDEAE0' : '#181A20';
+  const subtext = darkMode ? '#96917F' : '#565A64';
+  const accent = darkMode ? '#D4AF6A' : '#8A5A1F';
+  const accentSoft = darkMode ? 'rgba(212, 175, 106, 0.10)' : 'rgba(138, 90, 31, 0.07)';
 
   return (
     <div className="w-full overflow-x-auto">
@@ -22,10 +22,6 @@ export default function RAGDiagram({ darkMode }: RAGDiagramProps) {
           <marker id="rag-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" fill={stroke} />
           </marker>
-          <linearGradient id="rag-faiss" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor={darkMode ? '#7c3aed' : '#f97316'} />
-            <stop offset="100%" stopColor={darkMode ? '#ec4899' : '#f43f5e'} />
-          </linearGradient>
         </defs>
 
         {/* Box: Client */}

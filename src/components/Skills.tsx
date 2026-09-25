@@ -1,4 +1,4 @@
-import { Atom, Brain, Cloud, Code2, Database, GitBranch, ServerCog, ShieldCheck, Star } from 'lucide-react';
+import { Atom, Brain, Cloud, Code2, Database, GitBranch, ServerCog, ShieldCheck } from 'lucide-react';
 
 interface SkillsProps {
   darkMode: boolean;
@@ -137,129 +137,98 @@ export default function Skills({ darkMode }: SkillsProps) {
   return (
     <section
       id="skills"
-      className={`py-24 ${
-        darkMode ? 'bg-gradient-to-b from-slate-900 to-slate-950' : 'bg-gradient-to-b from-slate-50 to-white'
+      className={`py-24 border-t ${
+        darkMode ? 'bg-charcoal border-hairline-dark' : 'bg-paper border-hairline'
       } transition-colors duration-300`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <p
-            className={`text-sm font-mono uppercase tracking-widest mb-3 ${
-              darkMode ? 'text-purple-400' : 'text-orange-500'
-            }`}
-          >
-            // tech stack
-          </p>
+        <div className="mb-12 max-w-2xl">
+          <p className={`kicker mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`}>Skills</p>
           <h2
-            className={`text-4xl sm:text-5xl font-semibold tracking-tight mb-4 ${
-              darkMode ? 'text-white' : 'text-slate-900'
+            className={`font-serif text-3xl sm:text-4xl font-medium tracking-tight mb-4 ${
+              darkMode ? 'text-cream' : 'text-ink'
             }`}
           >
             What I work with
           </h2>
-          <p
-            className={`text-lg max-w-2xl mx-auto leading-relaxed ${
-              darkMode ? 'text-slate-400' : 'text-slate-600'
-            }`}
-          >
-            Grouped by what I actually use them for. Items marked{' '}
-            <span className={`inline-flex items-center gap-1 font-medium ${darkMode ? 'text-amber-300' : 'text-amber-600'}`}>
-              <Star size={14} className="fill-current" /> star
-            </span>{' '}
-            are where I'm strongest.
+          <p className={`text-base leading-relaxed ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
+            Grouped by what I actually use them for. A marked dot means it's where I'm strongest.
           </p>
         </div>
 
         {/* Skill groups */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div
+          className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-px mb-20 border rounded-lg overflow-hidden ${
+            darkMode ? 'border-hairline-dark' : 'border-hairline'
+          }`}
+          style={{ backgroundColor: darkMode ? 'rgba(255,255,255,0.06)' : '#E3DFD3' }}
+        >
           {SKILL_GROUPS.map(({ category, icon: Icon, description, skills }) => (
             <div
               key={category}
-              className={`rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1 ${
-                darkMode
-                  ? 'bg-white/[0.03] border-white/10 hover:border-white/20'
-                  : 'bg-white border-slate-200 hover:shadow-lg'
-              }`}
+              className={`p-6 ${darkMode ? 'bg-charcoal' : 'bg-paper'}`}
             >
-              <div className="flex items-center gap-3 mb-3">
-                <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                    darkMode ? 'bg-purple-500/15 text-purple-300' : 'bg-orange-50 text-orange-500'
-                  }`}
-                >
-                  <Icon size={20} />
-                </div>
-                <h3 className={`text-lg font-semibold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+              <div className="flex items-center gap-2.5 mb-3">
+                <Icon size={17} className={darkMode ? 'text-brass' : 'text-gold'} />
+                <h3 className={`text-[15px] font-semibold ${darkMode ? 'text-cream' : 'text-ink'}`}>
                   {category}
                 </h3>
               </div>
-              <p className={`text-sm mb-5 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+              <p className={`text-sm mb-4 ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                 {description}
               </p>
-              <div className="flex flex-wrap gap-1.5">
+              <ul className="space-y-1.5">
                 {skills.map(({ name, strong }) => (
-                  <span
+                  <li
                     key={name}
-                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium border ${
-                      strong
-                        ? darkMode
-                          ? 'bg-amber-400/10 border-amber-400/30 text-amber-200'
-                          : 'bg-amber-50 border-amber-200 text-amber-800'
-                        : darkMode
-                        ? 'bg-white/5 border-white/10 text-slate-300'
-                        : 'bg-slate-50 border-slate-200 text-slate-700'
+                    className={`flex items-center gap-2 text-[13px] ${
+                      darkMode ? 'text-cream-soft' : 'text-ink-soft'
                     }`}
                   >
-                    {strong && <Star size={10} className="fill-current" />}
-                    {name}
-                  </span>
+                    <span
+                      className={`w-1 h-1 rounded-full flex-shrink-0 ${
+                        strong ? (darkMode ? 'bg-brass' : 'bg-gold') : darkMode ? 'bg-white/20' : 'bg-ink/20'
+                      }`}
+                    />
+                    <span className={strong ? (darkMode ? 'text-cream font-medium' : 'text-ink font-medium') : ''}>
+                      {name}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
 
         {/* Engineering practices */}
-        <div className="text-center mb-10">
-          <p
-            className={`text-sm font-mono uppercase tracking-widest mb-3 ${
-              darkMode ? 'text-purple-400' : 'text-orange-500'
-            }`}
-          >
-            // how I work
-          </p>
+        <div className="mb-10 max-w-2xl">
+          <p className={`kicker mb-3 ${darkMode ? 'text-brass' : 'text-gold'}`}>How I work</p>
           <h3
-            className={`text-2xl sm:text-3xl font-semibold tracking-tight ${
-              darkMode ? 'text-white' : 'text-slate-900'
+            className={`font-serif text-2xl sm:text-3xl font-medium tracking-tight ${
+              darkMode ? 'text-cream' : 'text-ink'
             }`}
           >
             Engineering practices
           </h3>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {ENGINEERING_PRACTICES.map(({ icon: Icon, title, points }) => (
             <div
               key={title}
-              className={`rounded-2xl p-6 border ${
-                darkMode ? 'bg-white/[0.03] border-white/10' : 'bg-white border-slate-200'
+              className={`p-6 rounded-lg border ${
+                darkMode ? 'border-hairline-dark' : 'border-hairline'
               }`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                    darkMode ? 'bg-purple-500/15 text-purple-300' : 'bg-orange-50 text-orange-500'
-                  }`}
-                >
-                  <Icon size={18} />
-                </div>
-                <h4 className={`font-semibold ${darkMode ? 'text-white' : 'text-slate-900'}`}>{title}</h4>
+              <div className="flex items-center gap-2.5 mb-4">
+                <Icon size={17} className={darkMode ? 'text-brass' : 'text-gold'} />
+                <h4 className={`font-semibold text-sm ${darkMode ? 'text-cream' : 'text-ink'}`}>{title}</h4>
               </div>
-              <ul className={`space-y-2 text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+              <ul className={`space-y-2 text-sm ${darkMode ? 'text-cream-soft' : 'text-ink-soft'}`}>
                 {points.map((p, i) => (
                   <li key={i} className="flex gap-2">
-                    <span className={darkMode ? 'text-purple-400' : 'text-orange-500'}>›</span>
+                    <span className={darkMode ? 'text-brass' : 'text-gold'}>›</span>
                     <span>{p}</span>
                   </li>
                 ))}

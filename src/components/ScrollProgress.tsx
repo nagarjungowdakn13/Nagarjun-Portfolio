@@ -30,9 +30,7 @@ export default function ScrollProgress({ darkMode }: ScrollProgressProps) {
     >
       <div
         className={`h-full transition-[width] duration-100 ease-out ${
-          darkMode
-            ? 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500'
-            : 'bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500'
+          darkMode ? 'bg-brass' : 'bg-gold'
         }`}
         style={{ width: `${progress}%` }}
       />

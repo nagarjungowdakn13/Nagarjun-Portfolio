@@ -32,8 +32,8 @@ function App() {
   return (
     <div className={darkMode ? 'dark' : ''}>
       <div
-        className={`min-h-screen transition-colors duration-300 ${
-          darkMode ? 'bg-slate-950 text-white' : 'bg-white text-slate-900'
+        className={`min-h-screen transition-colors duration-300 font-sans ${
+          darkMode ? 'bg-charcoal text-cream' : 'bg-paper text-ink'
         }`}
       >
         <ScrollProgress darkMode={darkMode} />

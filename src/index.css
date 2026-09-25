@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,22 +12,31 @@ code, pre, .font-mono {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+.font-serif {
+  font-family: '"Source Serif 4"', ui-serif, Georgia, serif;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 88px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 @layer utilities {
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     will-change: opacity, transform;
   }
 
   .reveal-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -39,38 +48,11 @@ html {
   }
 
   .animate-gentle-rise {
-    animation: gentleRise 0.9s ease-out;
+    animation: gentleRise 0.7s ease-out;
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out both;
-  }
-
-  .animate-float {
-    animation: float 12s ease-in-out infinite;
-  }
-
-  .animate-float-delayed {
-    animation: float 16s ease-in-out infinite;
-    animation-delay: 2s;
-  }
-
-  .animate-float-slow {
-    animation: float 20s ease-in-out infinite;
-    animation-delay: 4s;
-  }
-
-  .animate-gentle-pulse {
-    animation: gentlePulse 5s ease-in-out infinite;
-  }
-
-  .animate-gentle-pulse-delayed {
-    animation: gentlePulse 7s ease-in-out infinite;
-    animation-delay: 2s;
-  }
-
-  .animate-gentle-bounce {
-    animation: gentleBounce 3s ease-in-out infinite;
+    animation: fadeIn 0.5s ease-out both;
   }
 
   .animate-blink {
@@ -84,44 +66,22 @@ html {
     overflow: hidden;
   }
 
-  .grid-pattern-light {
-    background-image:
-      linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-
-  .grid-pattern-dark {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
+  .kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
 }
 
 @keyframes gentleRise {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-18px) rotate(1deg); }
-}
-
-@keyframes gentlePulse {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50%      { opacity: 0.45; transform: scale(1.03); }
-}
-
-@keyframes gentleBounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
 }
 
 @keyframes blink {
@@ -135,12 +95,12 @@ input, textarea { cursor: text; }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #f97316, #f43f5e);
+  background: #8A5A1F;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #ea580c, #e11d48);
+  background: #6E4718;
 }
 
-::selection      { background: rgba(249, 115, 22, 0.25); color: inherit; }
-::-moz-selection { background: rgba(249, 115, 22, 0.25); color: inherit; }
+::selection      { background: rgba(138, 90, 31, 0.18); color: inherit; }
+::-moz-selection { background: rgba(138, 90, 31, 0.18); color: inherit; }
