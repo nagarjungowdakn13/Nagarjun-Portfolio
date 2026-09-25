@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import GitHubStats from './components/GitHubStats';
 import Header from './components/Header';
@@ -58,9 +57,6 @@ function App() {
           </Reveal>
           <Reveal>
             <TechNotes darkMode={darkMode} />
-          </Reveal>
-          <Reveal>
-            <Contact darkMode={darkMode} />
           </Reveal>
         </main>
         <Footer darkMode={darkMode} />

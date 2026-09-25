@@ -14,7 +14,6 @@ const ALL_NAV_ITEMS = [
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'notes', label: 'Notes' },
-  { id: 'contact', label: 'Contact' },
 ] as const;
 
 const NAV_ITEMS = ALL_NAV_ITEMS.filter((item) => item.id !== 'publications' || PUBLICATIONS.length > 0);

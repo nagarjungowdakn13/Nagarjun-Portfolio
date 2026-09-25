@@ -99,8 +99,8 @@ export default function Hero({ darkMode }: HeroProps) {
               <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
             </button>
 
-            <button
-              onClick={() => scrollTo('contact')}
+            <a
+              href={SOCIAL.email}
               className={`inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium text-sm border transition-all duration-200 hover:-translate-y-0.5 ${
                 darkMode
                   ? 'border-hairline-dark text-cream hover:bg-white/5 hover:border-brass/40'
@@ -109,7 +109,7 @@ export default function Hero({ darkMode }: HeroProps) {
             >
               <Mail size={15} />
               Contact
-            </button>
+            </a>
 
             <a
               href="/Nagarjun_Gowda_K_N_Master_Resume.pdf"
