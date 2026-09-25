@@ -337,8 +337,6 @@ const PROJECTS: Project[] = [
     tagline: 'Streaming microservices platform combining ensemble ML, graph learning, and SHAP explanations for transaction fraud.',
     categories: ['AI/ML', 'Backend'],
     icon: AlertTriangle,
-    image:
-      'https://raw.githubusercontent.com/nagarjungowdakn13/xai-fraud-detection/main/benchmark/plots/pr_ULB_VFEATURES_BASELINE.png',
     problem:
       'Fraud rings hide in the relationships between users and merchants, not in single transactions — and a fraud score is useless in a dispute if nobody can explain it.',
     approach: [

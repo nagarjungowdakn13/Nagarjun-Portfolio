@@ -7,18 +7,18 @@ interface AboutProps {
 const FOCUS_AREAS = [
   {
     icon: Brain,
-    title: 'Applied AI / ML',
-    body: 'RAG pipelines, LLM evaluation, embeddings, and grounding strategies. I treat ML systems as research problems as much as engineering ones — pipelines, eval harnesses, statistical validation, not just notebooks.',
+    title: 'AI / ML Research',
+    body: 'RAG pipelines, LLM evaluation, energy-aware inference, and multi-agent systems. I treat ML as a research problem as much as an engineering one — pipelines, eval harnesses, statistical validation, not just notebooks.',
   },
   {
     icon: ShieldCheck,
-    title: 'Security & Autonomous Defense',
-    body: 'Real-time network monitoring, ML-based anomaly detection, and autonomous threat detection systems that fuse graph, temporal, and behavioral signals into explainable, policy-gated decisions.',
+    title: 'Cybersecurity & Autonomous Defense',
+    body: 'Real-time intrusion detection, autonomous threat response, and explainable fraud detection that has to survive contact with attackers actively trying to fool it.',
   },
   {
     icon: Atom,
-    title: 'Post-Quantum Cryptography',
-    body: 'Quantum risk assessment, cryptographic agility, and empirical benchmarking of PQC algorithms (ML-KEM, ML-DSA, SLH-DSA) against classical schemes — quantifying claims instead of assuming them.',
+    title: 'Quantum Computing & PQC',
+    body: 'Quantum risk assessment, cryptographic agility, and empirical benchmarking of post-quantum algorithms (ML-KEM, ML-DSA, SLH-DSA) against classical schemes — quantifying claims instead of assuming them.',
   },
   {
     icon: ServerCog,
@@ -44,7 +44,7 @@ export default function About({ darkMode }: AboutProps) {
               darkMode ? 'text-cream' : 'text-ink'
             }`}
           >
-            Engineering, not just shipping features.
+            A researcher at the intersection of AI, cybersecurity, and quantum computing.
           </h2>
         </div>
 
@@ -97,31 +97,34 @@ export default function About({ darkMode }: AboutProps) {
               }`}
             >
               <p>
-                I'm a Computer Science engineer who got into building things the hard way — by debugging
-                production-shaped problems on side projects long before anyone asked me to. I started with
-                automation scripts, drifted into ML when I realized real systems live or die by their data
-                pipeline, and now spend most of my time at the intersection of <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>AI, security, and applied
-                cryptography</span>. I'm applying to MS in Computer Science programs to push that work further
-                than a side project can take it.
+                I'm a Computer Science engineer and researcher who fell for this work the hard way — chasing a
+                bug, a proof, or an experiment that wouldn't quite converge until far too late at night, and
+                realizing I didn't want to stop. That pull now runs across three areas I'm genuinely passionate
+                about — <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>AI/ML,
+                cybersecurity, and quantum computing</span> — which I've turned into a growing body of
+                published and under-review research, not just side projects.
               </p>
               <p>
-                The problems I gravitate toward have a common shape: <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>messy real-world data, an
-                ambiguous decision boundary, and a feedback loop that has to run reliably</span>. Whether
-                that's grounding an LLM against a private corpus, scoring quantum risk across a cryptographic
-                asset inventory, or fusing signals into an autonomous threat-response system — the challenge is
-                the same: make the system reproducible, evaluable, and honest about what it doesn't know.
+                In <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>AI/ML</span>, I care
+                about the gap between a demo and a system worth trusting: RAG pipelines that know when to say
+                "I don't know," LLM evaluation harnesses that catch regressions before users do, energy-aware
+                inference that doesn't trade accuracy for efficiency blindly, and multi-agent systems whose
+                decisions are explainable rather than merely plausible.
               </p>
               <p>
-                What pulls me toward graduate study is wanting to go past shipping — to formalize the parts of
-                these systems I've so far only approached empirically: validating model claims with proper
-                statistical tests instead of eyeballed accuracy, building autonomous systems that can explain
-                their own decisions, and treating evaluation itself as a first-class research problem rather
-                than an afterthought.
+                In <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>cybersecurity</span>,
+                I'm drawn to the adversarial edge — real-time intrusion detection, autonomous threat response,
+                and fraud detection that has to survive contact with attackers actively trying to fool it. Here,
+                explainability isn't a nice-to-have: a fraud flag or an intrusion alert is worthless in a
+                dispute or an audit if nobody can say why the model raised it.
               </p>
               <p>
-                I care about code quality the way I care about kitchen hygiene — quietly, constantly, and
-                because everything downstream depends on it. I'd rather build a smaller system that I understand
-                end-to-end than a large one that nobody can debug at 2 a.m.
+                <span className={`font-medium ${darkMode ? 'text-cream' : 'text-ink'}`}>Quantum computing</span>{' '}
+                is where I go looking for what's next — assessing how exposed today's cryptography is to
+                tomorrow's quantum attacks and benchmarking post-quantum algorithms against classical ones,
+                treating "quantum risk" as something to measure, not market. It's also the clearest reason I'm
+                applying to graduate study: I want to go past what a side project can prove, with the same
+                statistical rigor and honesty about limitations I'd want from any published result.
               </p>
             </div>
 
