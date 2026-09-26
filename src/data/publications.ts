@@ -36,8 +36,6 @@ export interface Publication {
   url?: string;
 }
 
-// Each entry has a commented-out `url` line. Paste the Google Drive link in,
-// then remove the leading // to make the title clickable.
 export const PUBLICATIONS: Publication[] = [
   {
     title:
@@ -46,7 +44,7 @@ export const PUBLICATIONS: Publication[] = [
     venue: '2nd Int. Conf. Computing for Sustainability and Intelligent Future (COMP-SIF), IEEE Xplore',
     status: 'Published',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/11MfI-jQ5oRAMwZd2ja010L3kqB-zll5R/view?usp=sharing',
   },
   {
     title: 'Energy-Aware Adaptive Inference for Computationally Efficient Deep Learning',
@@ -54,7 +52,7 @@ export const PUBLICATIONS: Publication[] = [
     venue: '2nd Int. Conf. Next Generation Electronics (NEleX), IEEE Xplore',
     status: 'Published',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/1JbNV6qpNEG6CB0o-NpY4VSvYrWfQ2BU3/view?usp=sharing',
   },
   {
     title: 'Scale-Invariant Sharpness Measures and Their Impact on Generalization in Deep Neural Networks',
@@ -62,7 +60,7 @@ export const PUBLICATIONS: Publication[] = [
     venue: 'IEEE I4C 2026 (presented)',
     status: 'Accepted',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/1j2OEY8RzSiDe6zvgUwpUkaV7TEdvvDzx/view?usp=sharing',
   },
   {
     title:
@@ -71,7 +69,7 @@ export const PUBLICATIONS: Publication[] = [
     venue: 'IEEE International Flagship Conference, NKCon-2K26',
     status: 'Accepted',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/1dRZEEGxu5JasvM3Ywwg1KsZ_Db61LK8L/view?usp=sharing',
   },
   {
     title:
@@ -80,7 +78,7 @@ export const PUBLICATIONS: Publication[] = [
     venue: 'IEEE International Flagship Conference, NKCon-2K26',
     status: 'Accepted',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/1Pdt0ZfYXnVMDf8kE7jsr2gzchhlgL-_J/view?usp=sharing',
   },
   {
     title:
@@ -89,7 +87,7 @@ export const PUBLICATIONS: Publication[] = [
     venue: 'Expert Systems with Applications (Elsevier), final stage',
     status: 'Under Review',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/1OdMkNS5J4E1M-3Pjn9CBHifU1iPmuks3/view?usp=sharing',
   },
   {
     title:
@@ -98,7 +96,7 @@ export const PUBLICATIONS: Publication[] = [
     venue: 'IEEE Access',
     status: 'Under Review',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/10i3hQAc_XXSbFwsbXZNq0dIuMm1qqb_k/view?usp=sharing',
   },
   {
     title:
@@ -107,6 +105,6 @@ export const PUBLICATIONS: Publication[] = [
     venue: '4th Int. Conf. Data Science and Information System (ICDSIS-2027)',
     status: 'Under Review',
     year: '2026',
-    // url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view',
+    url: 'https://drive.google.com/file/d/1Js34U5Pc3ou1AQbaWMjBI0JbFESxcXjx/view?usp=sharing',
   },
 ];
