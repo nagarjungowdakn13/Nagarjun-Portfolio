@@ -82,16 +82,16 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     title:
-      'Topology-Aware Explainability with Conformal Uncertainty Quantification for Real-Time Payment Fraud Detection: A Graph-Augmented Streaming Framework',
+      'Entity-Grounded Explanations, Conformal Triage and Drift Detection for Streaming Payment Fraud',
     authors: 'Nagarjun Gowda K N, Dhanalakshmi B K',
-    venue: 'Expert Systems with Applications (Elsevier), final stage',
+    venue: 'Expert Systems with Applications (Elsevier)',
     status: 'Under Review',
     year: '2026',
     url: 'https://drive.google.com/file/d/1OdMkNS5J4E1M-3Pjn9CBHifU1iPmuks3/view?usp=sharing',
   },
   {
     title:
-      'Coverage-Degradation Bounds for Conformal Prediction Under Energy-Aware Classifier Switching: A Case Study on Network Intrusion Detection Benchmarks',
+      'Conformal Coverage Under Cost-Saving Classifier Switching in Network Intrusion Detection',
     authors: 'Nagarjun Gowda K N, Ashwini N',
     venue: 'IEEE Access',
     status: 'Under Review',
@@ -106,5 +106,32 @@ export const PUBLICATIONS: Publication[] = [
     status: 'Under Review',
     year: '2026',
     url: 'https://drive.google.com/file/d/1Js34U5Pc3ou1AQbaWMjBI0JbFESxcXjx/view?usp=sharing',
+  },
+  {
+    title: 'Risk-Controlled Fidelity Allocation for Energy-Aware Network Intrusion Detection',
+    authors: 'Nagarjun Gowda K N, Nakul B, Jayanth Gopala V',
+    venue: '3rd Int. Conf. Computing for Sustainability and Intelligent Future (COMP-SIF 2027)',
+    status: 'Submitted',
+    year: '2026',
+    summary:
+      'Learn-then-Test-certified three-tier detection cut CPU by 47% on UNSW-NB15 at near-identical recall and 61% on CSE-CIC-IDS2018; 60-second block calibration reduced burst-campaign guarantee violations to ≤2%.',
+  },
+  {
+    title: 'CyberShieldNet: When Does Learned Multimodal Fusion Pay Off for Cyber-Risk Prioritization?',
+    authors: 'Nagarjun Gowda K N',
+    venue: '3rd Int. Conf. Computing for Sustainability and Intelligent Future (COMP-SIF 2027)',
+    status: 'Submitted',
+    year: '2026',
+    summary:
+      'On 58 days of LANL logs, unconstrained learned fusion collapsed to Recall@50 0.032, while sign-constrained learning gave the best fused Recall@50 (0.374) and stayed stable across regularization strengths.',
+  },
+  {
+    title: 'Quantum-Enhanced Graph Learning for Zero-Day Attack Detection under Distribution Shift',
+    authors: 'Nagarjun Gowda K N, Nakul B, Jayanth Gopala V',
+    venue: 'NQComp 2027',
+    status: 'Submitted',
+    year: '2026',
+    summary:
+      'Negative result: the quantum head underperformed an MLP head on held-out attack families (PR-AUC 0.897 vs. 0.934); host overlap inflated graph results, and gate noise cut fixed-threshold recall from 0.695 to 0.415.',
   },
 ];
