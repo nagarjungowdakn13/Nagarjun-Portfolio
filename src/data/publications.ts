@@ -113,8 +113,6 @@ export const PUBLICATIONS: Publication[] = [
     venue: '3rd Int. Conf. Computing for Sustainability and Intelligent Future (COMP-SIF 2027)',
     status: 'Submitted',
     year: '2026',
-    summary:
-      'Learn-then-Test-certified three-tier detection cut CPU by 47% on UNSW-NB15 at near-identical recall and 61% on CSE-CIC-IDS2018; 60-second block calibration reduced burst-campaign guarantee violations to ≤2%.',
   },
   {
     title: 'CyberShieldNet: When Does Learned Multimodal Fusion Pay Off for Cyber-Risk Prioritization?',
@@ -122,8 +120,6 @@ export const PUBLICATIONS: Publication[] = [
     venue: '3rd Int. Conf. Computing for Sustainability and Intelligent Future (COMP-SIF 2027)',
     status: 'Submitted',
     year: '2026',
-    summary:
-      'On 58 days of LANL logs, unconstrained learned fusion collapsed to Recall@50 0.032, while sign-constrained learning gave the best fused Recall@50 (0.374) and stayed stable across regularization strengths.',
   },
   {
     title: 'Quantum-Enhanced Graph Learning for Zero-Day Attack Detection under Distribution Shift',
@@ -131,7 +127,5 @@ export const PUBLICATIONS: Publication[] = [
     venue: 'NQComp 2027',
     status: 'Submitted',
     year: '2026',
-    summary:
-      'Negative result: the quantum head underperformed an MLP head on held-out attack families (PR-AUC 0.897 vs. 0.934); host overlap inflated graph results, and gate noise cut fixed-threshold recall from 0.695 to 0.415.',
   },
 ];
